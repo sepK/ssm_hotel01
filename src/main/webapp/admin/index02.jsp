@@ -142,8 +142,7 @@
 <!-- 搭建显示页面 -->
 <div class="container">
     <ul class="nav nav-pills">
-        <li role="presentation"><a
-                href="${BasePath }/customer/index">会员管理</a></li>
+        <li role="presentation"><a href="${BasePath }/customer/index">会员管理</a></li>
         <li role="presentation" class="active"><a href="${BasePath }/room/index02">客房管理</a></li>
         <li role="presentation"><a href="${BasePath }/index03">供应商管理</a></li>
         <li role="presentation"><a href="${BasePath }/index04">商品管理</a></li>
@@ -158,8 +157,18 @@
     </div>
     <!-- 按钮 -->
     <div class="row">
-        <div class="col-md-2 col-md-offset-4">
-            <input type="text" name="roomNumber" id="roomNumber_search_input" placeholder="请输入要查询的房间号">
+        <div class="col-md-2">
+            <select id="status_search_select">
+                <option value="0">空闲房间</option>
+                <option value="1">预定房间</option>
+                <option value="2">入住房间</option>
+                <option value="3">正在退房的房间</option>
+            </select>
+
+        </div>
+
+        <div class="col-md-2 col-md-offset-2">
+            <input type="text" name="roomNumber" id="roomNumber_search_input" placeholder="请输入要查询的房间号" />
             <span class="help-block"></span>
         </div>
         <div class="col-md-1">
@@ -230,7 +239,7 @@
             var idTd = $("<td></td>").append(item.id);
             var typeTd = $("<td></td>").append(item.type);
             var priceTd = $("<td></td>").append(item.price);
-            var statusTd = $("<td></td>").append(item.status);
+            var statusTd = $("<td></td>").append(item.status == 0?"空闲": item.status == 1?"预定": item.status == 2?"入住":"退房");
             var introduceTd = $("<td></td>").append(item.introduce);
             var roomNumberTd = $("<td></td>").append(item.roomNumber);
 
@@ -239,12 +248,10 @@
                 $("<span></span>").addClass("glyphicon glyphicon-pencil")).append("编辑");
 
             editBtn.attr("edit-id", item.id);
-            var delBtn = $("<button></button>").addClass(
-                "btn btn-danger btn-sm delete_btn").append(
+            var delBtn = $("<button></button>").addClass("btn btn-danger btn-sm delete_btn").append(
                 $("<span></span>").addClass("glyphicon glyphicon-trash")).append("删除");
             delBtn.attr("del-id", item.id);
-            var btnTd = $("<td></td>").append(editBtn).append(" ").append(
-                delBtn);
+            var btnTd = $("<td></td>").append(editBtn).append(" ").append(delBtn);
             $("<tr></tr>").append(idTd).append(typeTd).append(priceTd)
                 .append(statusTd).append(introduceTd).append(roomNumberTd).append(btnTd)
                 .appendTo("#room_table tbody");
@@ -338,7 +345,7 @@
         });
     });
 
-    //回显会员信息
+    //回显信息
     function getRoom(id) {
         $.ajax({
             url: "${BasePath}/room/room/" + id,
@@ -347,7 +354,7 @@
                 var room = result.extend.room;
                 $("#type_update_input").val(room.type);
                 $("#price_update_input").val(room.price);
-                $("#status_update_input").val(room.status);
+                $("#status_update_input").val(room.status );
                 $("#roomNumber_update_input").val(room.roomNumber);
                 $("#introduce_update_input").val(room.introduce);
                 $("#roomUpdateModal select").val(room.status);
@@ -357,15 +364,15 @@
 
     //删除会员
     $(document).on("click", ".delete_btn", function () {
-        var roomName = $(this).parents("tr").find("td:eq(1)").text();
+        var roomNumber = $(this).parents("tr").find("td:eq(5)").text();
         var id = $(this).attr("del-id");
-        if (confirm("确认删除【" + roomName + "】吗？")) {
+        if (confirm("确认删除【" + roomNumber + "】吗？")) {
             $.ajax({
-                url: "${BasePath}/roomtomer/roomtomer/" + id,
+                url: "${BasePath}/room/room/" + id,
                 type: "DELETE",
                 success: function (result) {
                     alert(result.msg);
-                    to_page("roomtomers", currentPage);
+                    to_page("rooms", currentPage);
                 }
             });
         }
@@ -405,9 +412,9 @@
         $("#page_info_area").empty();
         $("#page_nav_area").empty();
         $.ajax({
-            url: "${BasePath}/roomtomer/searchroom",
+            url: "${BasePath}/room/searchRoom",
             type: "POST",
-            data: "roomName=" + $("#roomName_search_input").val(),
+            data: "roomNumber=" + $("#roomNumber_search_input").val(),
             success: function (result) {
                 build_room_table(result.extend.list);
             }
@@ -447,6 +454,19 @@
                        show_validate_msg("#roomNumber_add_input","success","");
                        $("#roomNumber_add_input").attr("ajax-va", "success");
                    }
+            }
+        });
+    });
+    $("#status_search_select").change(function () {
+        $("#room_table tbody").empty();
+        $("#page_info_area").empty();
+        $("#page_nav_area").empty();
+        $.ajax({
+            url: "${BasePath}/room/searchByStatus",
+            type: "POST",
+            data: "status="+$(this).val(),
+            success: function (result) {
+                build_room_table(result.extend.list);
             }
         });
     });

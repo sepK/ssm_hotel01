@@ -15,4 +15,10 @@ public interface RoomService {
     boolean addRoom(Room room);
 
     boolean checkRoomNumber(String number);
+
+    boolean delRoom(Integer id);
+
+    List<Room> searchRoomByRoomNumber(String roomNumber);
+
+    List<Room> getRoomByStatus(short status);
 }

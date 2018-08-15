@@ -13,7 +13,7 @@ import java.util.List;
 
 @Controller
 @RequestMapping("/room")
-public class RoomCustomer {
+public class RoomController {
     @Resource
     private RoomService roomService;
 
@@ -48,6 +48,23 @@ public class RoomCustomer {
 
     }
 
+    @RequestMapping(value = "/room/{id}",method = RequestMethod.DELETE)
+    @ResponseBody
+    public Msg delRoom(@PathVariable("id") Integer id){
+        if(roomService.delRoom(id)){
+            return Msg.success();
+        }else{
+            return Msg.fail();
+        }
+    }
+    @RequestMapping(value = "/searchRoom",method = RequestMethod.POST)
+    @ResponseBody
+    public Msg searchRoom(@RequestParam("roomNumber") String roomNumber){
+        List<Room> list = roomService.searchRoomByRoomNumber(roomNumber);
+        return Msg.success().add("list",list);
+    }
+
+
     @RequestMapping(value = "/room", method = RequestMethod.POST)
     @ResponseBody
     public Msg addRoom(Room room){
@@ -66,5 +83,12 @@ public class RoomCustomer {
         }else {
             return Msg.fail();
         }
+    }
+
+    @RequestMapping("/searchByStatus")
+    @ResponseBody
+    public Msg searchByStatus(@RequestParam("status") short status){
+        List<Room> list = roomService.getRoomByStatus(status);
+        return Msg.success().add("list",list);
     }
 }

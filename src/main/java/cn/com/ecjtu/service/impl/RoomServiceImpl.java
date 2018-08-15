@@ -37,4 +37,22 @@ public class RoomServiceImpl implements RoomService{
         criteria.andRoomNumberEqualTo(number);
         return roomMapper.selectByExample(example) == null;
     }
+
+    public boolean delRoom(Integer id) {
+        return roomMapper.deleteByPrimaryKey(id) > 0;
+    }
+
+    public List<Room> searchRoomByRoomNumber(String roomNumber) {
+        RoomExample example = new RoomExample();
+        Criteria criteria = example.createCriteria();
+        criteria.andRoomNumberEqualTo(roomNumber);
+        return roomMapper.selectByExampleWithBLOBs(example);
+    }
+
+    public List<Room> getRoomByStatus(short status) {
+        RoomExample example = new RoomExample();
+        Criteria criteria = example.createCriteria();
+        criteria.andStatusEqualTo(status);
+        return roomMapper.selectByExample(example);
+    }
 }
