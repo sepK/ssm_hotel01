@@ -149,7 +149,7 @@
     <ul class="nav nav-pills">
         <li role="presentation" class="active"><a
                 href="${BasePath }/customer/index">会员管理</a></li>
-        <li role="presentation"><a href="${BasePath }/customer/index02">销售管理</a></li>
+        <li role="presentation"><a href="${BasePath }/room/index02">客房管理</a></li>
         <li role="presentation"><a href="${BasePath }/index03">供应商管理</a></li>
         <li role="presentation"><a href="${BasePath }/index04">商品管理</a></li>
         <li role="presentation"><a href="${BasePath }/index05">宠物管理</a></li>
