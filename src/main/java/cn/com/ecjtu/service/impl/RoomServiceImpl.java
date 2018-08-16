@@ -24,7 +24,7 @@ public class RoomServiceImpl implements RoomService{
     }
 
     public boolean saveRoom(Room room) {
-        return roomMapper.updateByPrimaryKeyWithBLOBs(room) > 0;
+        return roomMapper.updateByPrimaryKeySelective(room) > 0;
     }
 
     public boolean addRoom(Room room) {
@@ -35,7 +35,7 @@ public class RoomServiceImpl implements RoomService{
         RoomExample example = new RoomExample();
         Criteria criteria = example.createCriteria();
         criteria.andRoomNumberEqualTo(number);
-        return roomMapper.selectByExample(example) == null;
+        return roomMapper.selectByExample(example).size() == 0;
     }
 
     public boolean delRoom(Integer id) {

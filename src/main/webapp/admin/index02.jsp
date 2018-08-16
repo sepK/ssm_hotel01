@@ -39,18 +39,13 @@
                         <label class="col-sm-2 control-label">房间价格</label>
                         <div class="col-sm-10">
                             <input type="text" name="price" class="form-control" id="price_update_input" >
-                        </label>
+                            <span class="help-block"></span>
                         </div>
                     </div>
                     <div class="form-group">
                         <label class="col-sm-2 control-label">客房状态</label>
                         <div class="col-sm-10">
-                            <select class="form-control" name="status">
-                                <option value="0">空闲</option>
-                                <option value="1">预定</option>
-                                <option value="2">入住</option>
-                                <option value="3">退房</option>
-                            </select>
+                            <input type="text" name="price" class="form-control" id="status_update_input" readonly="readonly"/>
                             <span class="help-block"></span>
                         </div>
                     </div>
@@ -145,7 +140,7 @@
         <li role="presentation"><a href="${BasePath }/customer/index">会员管理</a></li>
         <li role="presentation" class="active"><a href="${BasePath }/room/index02">客房管理</a></li>
         <li role="presentation"><a href="${BasePath }/employee/index03">员工管理</a></li>
-        <li role="presentation"><a href="${BasePath }/index04">商品管理</a></li>
+        <li role="presentation"><a href="${BasePath }/order/index04">订单管理</a></li>
         <li role="presentation"><a href="${BasePath }/index05">宠物管理</a></li>
         <li role="presentation"><a href="${BasePath }/index06">订单管理</a></li>
     </ul>
@@ -354,10 +349,9 @@
                 var room = result.extend.room;
                 $("#type_update_input").val(room.type);
                 $("#price_update_input").val(room.price);
-                $("#status_update_input").val(room.status );
                 $("#roomNumber_update_input").val(room.roomNumber);
                 $("#introduce_update_input").val(room.introduce);
-                $("#roomUpdateModal select").val(room.status);
+                $("#status_update_input").val(room.status == 0?"空闲": room.status == 1?"预定": room.status == 2?"入住":"退房");
             }
         });
     }

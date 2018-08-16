@@ -18,6 +18,13 @@ public class Msg {
 		result.setMsg("处理成功！");
 		return result;
 	}
+
+	public static Msg success(String msg){
+		Msg result = new Msg();
+		result.setCode(200);
+		result.setMsg(msg);
+		return result;
+	}
 	
 	public static Msg fail(){
 		Msg result = new Msg();
@@ -25,7 +32,14 @@ public class Msg {
 		result.setMsg("处理失败！");
 		return result;
 	}
-	
+
+	public static Msg fail(String msg){
+		Msg result = new Msg();
+		result.setCode(400);
+		result.setMsg(msg);
+		return result;
+	}
+
 	public Msg add(String key,Object value){
 		this.getExtend().put(key, value);
 		return this;
