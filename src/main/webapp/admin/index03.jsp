@@ -15,7 +15,7 @@
     <script src="${BasePath }/static/bootstrap/js/bootstrap.min.js"></script>
 </head>
 <body>
-<div class="modal fade" id="roomUpdateModal" tabindex="-1" role="dialog"
+<div class="modal fade" id="empsUpdateModal" tabindex="-1" role="dialog"
      aria-labelledby="myModalLabel">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
@@ -29,56 +29,54 @@
             <div class="modal-body">
                 <form class="form-horizontal">
                     <div class="form-group">
-                        <label class="col-sm-2 control-label">客房类型</label>
+                        <label class="col-sm-2 control-label">员工姓名</label>
                         <div class="col-sm-10">
-                            <input type="text" name="type" class="form-control" id="type_update_input">
+                            <input type="text" name="empName" class="form-control" id="empName_update_input">
                             <span class="help-block"></span>
                         </div>
                     </div>
                     <div class="form-group">
-                        <label class="col-sm-2 control-label">房间价格</label>
+                        <label class="col-sm-2 control-label">性别</label>
                         <div class="col-sm-10">
-                            <input type="text" name="price" class="form-control" id="price_update_input" >
-                        </label>
+                            <label class="radio-inline">
+                                <input type="radio" name="sex" id="sex_update_input1" value="男" checked="checked">男
+                            </label>
+                            <label class="radio-inline">
+                                <input type="radio" name="sex" id="sex_update_input2" value="女"> 女
+                            </label>
                         </div>
                     </div>
                     <div class="form-group">
-                        <label class="col-sm-2 control-label">客房状态</label>
+                        <label class="col-sm-2 control-label">年龄</label>
                         <div class="col-sm-10">
-                            <select class="form-control" name="status">
-                                <option value="0">空闲</option>
-                                <option value="1">预定</option>
-                                <option value="2">入住</option>
-                                <option value="3">退房</option>
-                            </select>
+                            <input type="text" name="age" class="form-control" id="age_update_input">
                             <span class="help-block"></span>
                         </div>
                     </div>
                     <div class="form-group">
-                        <label class="col-sm-2 control-label">客房介绍</label>
+                        <label class="col-sm-2 control-label">电话</label>
                         <div class="col-sm-10">
-                            <input type="text" name="introduce" class="form-control" id="introduce_update_input">
+                            <input type="text" name="phone" class="form-control" id="phone_update_input">
                             <span class="help-block"></span>
                         </div>
                     </div>
                     <div class="form-group">
-                        <label class="col-sm-2 control-label">客房号</label>
+                        <label class="col-sm-2 control-label">职务</label>
                         <div class="col-sm-10">
-                            <input type="text" name="roomNumber" class="form-control"
-                                   id="roomNumber_update_input"> <span class="help-block"></span>
+                            <input type="text" name="duty" class="form-control" id="duty_update_input">
+                            <span class="help-block"></span>
                         </div>
                     </div>
                 </form>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
-                <button type="button" class="btn btn-primary" id="room_update_btn">保存</button>
+                <button type="button" class="btn btn-primary" id="emps_update_btn">保存</button>
             </div>
         </div>
     </div>
 </div>
-<div class="modal fade" id="roomAddModal" tabindex="-1" role="dialog"
-     aria-labelledby="myModalLabel">
+<div class="modal fade" id="empsAddModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
@@ -91,42 +89,41 @@
             <div class="modal-body">
                 <form class="form-horizontal">
                     <div class="form-group">
-                        <label class="col-sm-2 control-label">客房类型</label>
+                        <label class="col-sm-2 control-label">员工姓名</label>
                         <div class="col-sm-10">
-                            <input type="text" name="type" class="form-control" id="type_add_input">
+                            <input type="text" name="empName" class="form-control" id="empName_add_input">
                             <span class="help-block"></span>
                         </div>
                     </div>
                     <div class="form-group">
-                        <label class="col-sm-2 control-label">房间价格</label>
+                        <label class="col-sm-2 control-label">性别</label>
                         <div class="col-sm-10">
-                            <input type="text" name="price" class="form-control" id="price_add_input" >
+                            <label class="radio-inline">
+                                <input type="radio" name="sex" id="sex_add_input1" value="男" checked="checked">男
+                            </label>
+                            <label class="radio-inline">
+                                <input type="radio" name="sex" id="sex_add_input2" value="女"> 女
                             </label>
                         </div>
                     </div>
                     <div class="form-group">
-                        <label class="col-sm-2 control-label">客房状态</label>
+                        <label class="col-sm-2 control-label">年龄</label>
                         <div class="col-sm-10">
-                            <select class="form-control" name="status">
-                                <option value="0">空闲</option>
-                                <option value="1">预定</option>
-                                <option value="2">入住</option>
-                                <option value="3">退房</option>
-                            </select>
+                            <input type="text" name="age" class="form-control" id="age_add_input">
                             <span class="help-block"></span>
                         </div>
                     </div>
                     <div class="form-group">
-                        <label class="col-sm-2 control-label">客房介绍</label>
+                        <label class="col-sm-2 control-label">电话</label>
                         <div class="col-sm-10">
-                            <input type="text" name="introduce" class="form-control" id="introduce_add_input">
+                            <input type="text" name="phone" class="form-control" id="phone_add_input">
                             <span class="help-block"></span>
                         </div>
                     </div>
                     <div class="form-group">
-                        <label class="col-sm-2 control-label">客房号</label>
+                        <label class="col-sm-2 control-label">职务</label>
                         <div class="col-sm-10">
-                            <input type="text" name="roomNumber" class="form-control" id="roomNumber_add_input">
+                            <input type="text" name="duty" class="form-control" id="duty_add_input">
                             <span class="help-block"></span>
                         </div>
                     </div>
@@ -134,7 +131,7 @@
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
-                <button type="button" class="btn btn-primary" id="room_add_btn">保存</button>
+                <button type="button" class="btn btn-primary" id="emps_add_btn">保存</button>
             </div>
         </div>
     </div>
@@ -143,8 +140,8 @@
 <div class="container">
     <ul class="nav nav-pills">
         <li role="presentation"><a href="${BasePath }/customer/index">会员管理</a></li>
-        <li role="presentation" class="active"><a href="${BasePath }/room/index02">客房管理</a></li>
-        <li role="presentation"><a href="${BasePath }/employee/index03">员工管理</a></li>
+        <li role="presentation"><a href="${BasePath }/room/index02">客房管理</a></li>
+        <li role="presentation" class="active"><a href="${BasePath }/employee/index03">员工管理</a></li>
         <li role="presentation"><a href="${BasePath }/index04">商品管理</a></li>
         <li role="presentation"><a href="${BasePath }/index05">宠物管理</a></li>
         <li role="presentation"><a href="${BasePath }/index06">订单管理</a></li>
@@ -157,26 +154,16 @@
     </div>
     <!-- 按钮 -->
     <div class="row">
-        <div class="col-md-2">
-            <select id="status_search_select">
-                <option value="0">空闲房间</option>
-                <option value="1">预定房间</option>
-                <option value="2">入住房间</option>
-                <option value="3">正在退房的房间</option>
-            </select>
-
-        </div>
-
-        <div class="col-md-2 col-md-offset-2">
-            <input type="text" name="roomNumber" id="roomNumber_search_input" placeholder="请输入要查询的房间号" />
+        <div class="col-md-2 col-md-offset-4">
+            <input type="text" name="empName" id="empName_search_input" placeholder="请输入要查询的员工名" />
             <span class="help-block"></span>
         </div>
         <div class="col-md-1">
-            <button class="btn btn-info" id="room_search_modal_btn">搜索</button>
+            <button class="btn btn-info" id="emps_search_modal_btn">搜索</button>
             <span class="help-block"></span>
         </div>
         <div class="col-md-2 col-md-offset-3">
-            <button class="btn btn-primary" id="room_add_modal_btn">新增</button>
+            <button class="btn btn-primary" id="emps_add_modal_btn">新增</button>
             <span class="help-block"></span>
         </div>
     </div>
@@ -184,15 +171,15 @@
     <div class="row">
         <div class="col-md-12">
             <table class="table table-hover table-striped table-bordered"
-                   id="room_table">
+                   id="emps_table">
                 <thead>
                 <tr>
-                    <th>客房ID</th>
-                    <th>客房类型</th>
-                    <th>客房价格</th>
-                    <th>客房状态</th>
-                    <th>房间介绍</th>
-                    <th>房间号</th>
+                    <th>用户ID</th>
+                    <th>用户名称</th>
+                    <th>性别</th>
+                    <th>年龄</th>
+                    <th>电话</th>
+                    <th>职务</th>
                     <th>操作</th>
                 </tr>
                 </thead>
@@ -215,17 +202,17 @@
 <script type="text/javascript">
     var totalRecord, currentPage;
     $(function () {
-        to_page("rooms", 1);
+        to_page("employees", 1);
     });
 
     function to_page(method, pn) {
         $.ajax({
-            url: "${BasePath}/room/" + method,
+            url: "${BasePath}/employee/" + method,
             data: "pn=" + pn,
             type: "GET",
             dataType: "json",
             success: function (result) {
-                build_room_table(result.extend.pageInfo.list);
+                build_emps_table(result.extend.pageInfo.list);
                 build_page_info(result);
                 build_page_nav(method, result);
             }
@@ -233,15 +220,15 @@
     }
 
     //生成table表格内容
-    function build_room_table(result) {
-        $("#room_table tbody").empty();
+    function build_emps_table(result) {
+        $("#emps_table tbody").empty();
         $.each(result, function (index, item) {
             var idTd = $("<td></td>").append(item.id);
-            var typeTd = $("<td></td>").append(item.type);
-            var priceTd = $("<td></td>").append(item.price);
-            var statusTd = $("<td></td>").append(item.status == 0?"空闲": item.status == 1?"预定": item.status == 2?"入住":"退房");
-            var introduceTd = $("<td></td>").append(item.introduce);
-            var roomNumberTd = $("<td></td>").append(item.roomNumber);
+            var empNameTd = $("<td></td>").append(item.empName);
+            var sexTd = $("<td></td>").append(item.sex);
+            var ageTd = $("<td></td>").append(item.age);
+            var phoneTd = $("<td></td>").append(item.phone);
+            var dutyTd = $("<td></td>").append(item.duty);
 
 
             var editBtn = $("<button></button>").addClass("btn btn-primary btn-sm edit_btn").append(
@@ -252,9 +239,9 @@
                 $("<span></span>").addClass("glyphicon glyphicon-trash")).append("删除");
             delBtn.attr("del-id", item.id);
             var btnTd = $("<td></td>").append(editBtn).append(" ").append(delBtn);
-            $("<tr></tr>").append(idTd).append(typeTd).append(priceTd)
-                .append(statusTd).append(introduceTd).append(roomNumberTd).append(btnTd)
-                .appendTo("#room_table tbody");
+            $("<tr></tr>").append(idTd).append(empNameTd).append(sexTd)
+                .append(ageTd).append(phoneTd).append(dutyTd).append(btnTd)
+                .appendTo("#emps_table tbody");
         });
     }
 
@@ -330,93 +317,96 @@
         $(ele).find(".help-block").text("");
     }
 
-    $("#room_add_modal_btn").click(function () {
-        reset_form("#roomAddModal form");
-        $("#roomAddModal").modal({
+    $("#emps_add_modal_btn").click(function () {
+        reset_form("#empsAddModal form");
+        $("#empsAddModal").modal({
             backdrop: "static"
         });
     });
     $(document).on("click", ".edit_btn", function () {
-        getRoom($(this).attr("edit-id"));
+        getEmps($(this).attr("edit-id"));
 
-        $("#room_update_btn").attr("edit-id", $(this).attr("edit-id"));
-        $("#roomUpdateModal").modal({
+        $("#emps_update_btn").attr("edit-id", $(this).attr("edit-id"));
+        $("#empsUpdateModal").modal({
             backdrop: "static"
         });
     });
 
     //回显信息
-    function getRoom(id) {
+    function getEmps(id) {
         $.ajax({
-            url: "${BasePath}/room/room/" + id,
+            url: "${BasePath}/employee/employee/" + id,
             type: "GET",
             success: function (result) {
-                var room = result.extend.room;
-                $("#type_update_input").val(room.type);
-                $("#price_update_input").val(room.price);
-                $("#status_update_input").val(room.status );
-                $("#roomNumber_update_input").val(room.roomNumber);
-                $("#introduce_update_input").val(room.introduce);
-                $("#roomUpdateModal select").val(room.status);
+                var emp = result.extend.emp;
+                $("#empName_update_input").val(emp.empName);
+                if(emp.sex == "男"){
+                    $("#sex_update_input1").attr("checked","checked");
+                }else{
+                    $("#sex_update_input2").attr("checked","checked");
+                }
+                $("#age_update_input").val(emp.age);
+                $("#phone_update_input").val(emp.phone);
+                $("#duty_update_input").val(emp.duty);
             }
         });
     }
 
     //删除会员
     $(document).on("click", ".delete_btn", function () {
-        var roomNumber = $(this).parents("tr").find("td:eq(5)").text();
+        var empName = $(this).parents("tr").find("td:eq(1)").text();
         var id = $(this).attr("del-id");
-        if (confirm("确认删除【" + roomNumber + "】吗？")) {
+        if (confirm("确认删除【" + empName + "】吗？")) {
             $.ajax({
-                url: "${BasePath}/room/room/" + id,
+                url: "${BasePath}/employee/employee/" + id,
                 type: "DELETE",
                 success: function (result) {
                     alert(result.msg);
-                    to_page("rooms", currentPage);
+                    to_page("employees", currentPage);
                 }
             });
         }
     });
-    $("#room_update_btn").click(
+    $("#emps_update_btn").click(
         function () {
             $.ajax({
-                url: "${BasePath}/room/room/"
+                url: "${BasePath}/employee/employee/"
                 + $(this).attr("edit-id"),
-                type: "POST",
-                data: $("#roomUpdateModal form").serialize(),
+                type: "PUT",
+                data: $("#empsUpdateModal form").serialize(),
                 success: function (result) {
-                    $("#roomUpdateModal").modal("hide");
+                    $("#empsUpdateModal").modal("hide");
                     alert(result.msg);
-                    to_page("rooms", currentPage);
+                    to_page("employees", currentPage);
                 }
             });
         });
-    $("#room_add_btn").click(function () {
+    $("#emps_add_btn").click(function () {
         if (!validate_add_form()) {
             return false;
         }
         $.ajax({
-            url: "${BasePath}/room/room",
+            url: "${BasePath}/employee/employee",
             type: "POST",
-            data: $("#roomAddModal form").serialize(),
+            data: $("#empsAddModal form").serialize(),
             success: function (result) {
-                $("#roomAddModal").modal("hide");
+                $("#empsAddModal").modal("hide");
                 alert(result.msg);
-                to_page("rooms", totalRecord);
+                to_page("emps", totalRecord);
             }
         });
     });
-    $("#room_search_modal_btn").click(function () {
-        //roomName_search_input phone_search_input
-        $("#room_table tbody").empty();
+    $("#emps_search_modal_btn").click(function () {
+        //empsName_search_input phone_search_input
+        $("#emps_table tbody").empty();
         $("#page_info_area").empty();
         $("#page_nav_area").empty();
         $.ajax({
-            url: "${BasePath}/room/searchRoom",
+            url: "${BasePath}/employee/searchEmps",
             type: "POST",
-            data: "roomNumber=" + $("#roomNumber_search_input").val(),
+            data: "empName=" + $("#empName_search_input").val(),
             success: function (result) {
-                build_room_table(result.extend.list);
+                build_emps_table(result.extend.list);
             }
         });
     });
@@ -441,32 +431,19 @@
             $(ele).next("span").text(msg);
         }
     }
-    $("#roomNumber_add_input").change(function () {
+    $("#empName_add_input").change(function () {
         $.ajax({
-            url:"${BasePath}/room/checkRoomNumber",
-            type:"POST",
-            data:"roomNumber="+$(this).val(),
+            url:"${BasePath}/employee/checkEmpName",
+            type:"GET",
+            data:"empName="+$(this).val(),
             success:function (result) {
                    if(result.code == 400){
-                       show_validate_msg("#roomNumber_add_input","error","客房号存在");
+                       show_validate_msg("#empName_add_input","error","用户名已经存在");
                        $("#roomNumber_add_input").attr("ajax-va", "error");
                    }else{
-                       show_validate_msg("#roomNumber_add_input","success","");
+                       show_validate_msg("#empName_add_input","success","");
                        $("#roomNumber_add_input").attr("ajax-va", "success");
                    }
-            }
-        });
-    });
-    $("#status_search_select").change(function () {
-        $("#room_table tbody").empty();
-        $("#page_info_area").empty();
-        $("#page_nav_area").empty();
-        $.ajax({
-            url: "${BasePath}/room/searchByStatus",
-            type: "POST",
-            data: "status="+$(this).val(),
-            success: function (result) {
-                build_room_table(result.extend.list);
             }
         });
     });

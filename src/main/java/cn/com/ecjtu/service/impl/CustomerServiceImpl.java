@@ -48,7 +48,7 @@ public class CustomerServiceImpl implements CustomerService{
 		CustomerExample example = new CustomerExample();
 		Criteria criteria = example.createCriteria();
 		criteria.andCustomerNameEqualTo(name);
-		return customerMapper.selectByExample(example)!=null;
+		return customerMapper.selectByExample(example).size() == 0;
 	}
 
 }
