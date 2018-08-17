@@ -352,9 +352,8 @@
 
     //删除
     $(document).on("click", ".delete_btn", function () {
-        var empName = $(this).parents("tr").find("td:eq(1)").text();
         var id = $(this).attr("del-id");
-        if (confirm("确认删除【" + empName + "】吗？")) {
+        if (confirm("确认删除吗？")) {
             $.ajax({
                 url: "${BasePath}/order/order/" + id,
                 type: "DELETE",
@@ -395,7 +394,7 @@
                     $("#orderAddModal").modal("hide");
                 }
                 alert(result.msg);
-                to_page("order", totalRecord);
+                to_page("orders", totalRecord);
             }
         });
     });

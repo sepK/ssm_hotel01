@@ -15,4 +15,6 @@ public interface OrderInfoService {
     boolean addOrder(OrderInfo orderInfo);
 
     List<OrderInfo> getOrdersByRoomId(Integer roomid);
+
+    boolean delOrder(Integer id);
 }

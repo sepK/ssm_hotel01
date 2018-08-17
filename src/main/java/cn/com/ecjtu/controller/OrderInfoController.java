@@ -1,16 +1,16 @@
 package cn.com.ecjtu.controller;
 
-import cn.com.ecjtu.exception.*;
+import cn.com.ecjtu.exception.CustomerNotFoundException;
+import cn.com.ecjtu.exception.EmployeeNotFoundException;
+import cn.com.ecjtu.exception.RepeatOrderException;
+import cn.com.ecjtu.exception.RoomNotFoundException;
 import cn.com.ecjtu.pojo.OrderInfo;
-import cn.com.ecjtu.pojo.Room;
 import cn.com.ecjtu.service.OrderInfoService;
 import cn.com.ecjtu.utils.Msg;
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
-import org.springframework.core.annotation.Order;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
-import sun.misc.Request;
 
 import javax.annotation.Resource;
 import java.util.List;
@@ -82,5 +82,17 @@ public class OrderInfoController {
     public Msg searchOrders(@RequestParam("roomid") Integer roomid){
         List<OrderInfo> list = orderInfoService.getOrdersByRoomId(roomid);
         return Msg.success().add("list",list);
+    }
+
+    @RequestMapping(value = "/order/{id}", method = RequestMethod.DELETE)
+    @ResponseBody
+    public Msg delOrder(@PathVariable("id") Integer id){
+        if(orderInfoService.delOrder(id)){
+            return Msg.success();
+        }else{
+            return Msg.fail();
+        }
+
+
     }
 }

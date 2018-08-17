@@ -2,6 +2,7 @@ package cn.com.ecjtu.service.impl;
 
 import cn.com.ecjtu.exception.*;
 import cn.com.ecjtu.mapper.OrderInfoMapper;
+import cn.com.ecjtu.mapper.RoomMapper;
 import cn.com.ecjtu.pojo.OrderInfo;
 import cn.com.ecjtu.pojo.OrderInfoExample;
 import cn.com.ecjtu.pojo.Room;
@@ -69,6 +70,8 @@ public class OrderInfoServiceImpl implements OrderInfoService{
                     if(employeeService.getEmp(orderInfo.getEmpId())==null){
                         throw new EmployeeNotFoundException("员工不存在");
                     }else{
+                        room.setStatus(Short.valueOf(orderInfo.getOstatus().toString()));
+                        roomService.saveRoom(room);
                         return orderInfoMapper.insertSelective(orderInfo) > 0;
                     }
                 }
@@ -89,5 +92,9 @@ public class OrderInfoServiceImpl implements OrderInfoService{
         OrderInfoExample.Criteria criteria = example.createCriteria();
         criteria.andRoomidEqualTo(roomid);
         return orderInfoMapper.selectByExampleWithBLOBs(example);
+    }
+
+    public boolean delOrder(Integer id) {
+        return orderInfoMapper.deleteByPrimaryKey(id) > 0;
     }
 }
