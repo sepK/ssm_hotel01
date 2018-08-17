@@ -75,9 +75,6 @@
   <sql id="Blob_Column_List">
     introduce
   </sql>
-  <sql id="WithOther_Column_List">
-    id, roomid, cusName, ostatus, emp_id
-  </sql>
   <select id="selectByExampleWithBLOBs" parameterType="cn.com.ecjtu.pojo.OrderInfoExample" resultMap="ResultMapWithBLOBs">
     select
     <if test="distinct">

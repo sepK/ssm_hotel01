@@ -28,7 +28,7 @@ public class EmployeeController {
     public Msg getEmployee(@RequestParam("pn") Integer pn){
         PageHelper.startPage(pn,10);
         List<Employee> list = employeeService.getEmps();
-        PageInfo<Employee> pageInfo = new PageInfo<Employee>(list,10);
+        PageInfo<Employee> pageInfo = new PageInfo<Employee>(list,5);
         return  Msg.success().add("pageInfo",pageInfo);
     }
     @RequestMapping(value = "/employee/{id}",method = RequestMethod.GET)

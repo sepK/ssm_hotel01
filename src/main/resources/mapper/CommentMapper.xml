@@ -4,7 +4,7 @@
   <resultMap id="BaseResultMap" type="cn.com.ecjtu.pojo.Comment">
     <id column="id" jdbcType="VARCHAR" property="id" />
     <result column="cusName" jdbcType="VARCHAR" property="cusname" />
-    <result column="time" jdbcType="DATE" property="time" />
+    <result column="time" jdbcType="TIMESTAMP" property="time" />
     <result column="level" jdbcType="INTEGER" property="level" />
     <result column="room_number" jdbcType="CHAR" property="roomNumber" />
   </resultMap>
@@ -127,7 +127,7 @@
     insert into comment (id, cusName, time, 
       level, room_number, introduce
       )
-    values (#{id,jdbcType=VARCHAR}, #{cusname,jdbcType=VARCHAR}, #{time,jdbcType=DATE}, 
+    values (#{id,jdbcType=VARCHAR}, #{cusname,jdbcType=VARCHAR}, #{time,jdbcType=TIMESTAMP}, 
       #{level,jdbcType=INTEGER}, #{roomNumber,jdbcType=CHAR}, #{introduce,jdbcType=LONGVARCHAR}
       )
   </insert>
@@ -161,7 +161,7 @@
         #{cusname,jdbcType=VARCHAR},
       </if>
       <if test="time != null">
-        #{time,jdbcType=DATE},
+        #{time,jdbcType=TIMESTAMP},
       </if>
       <if test="level != null">
         #{level,jdbcType=INTEGER},
@@ -190,7 +190,7 @@
         cusName = #{record.cusname,jdbcType=VARCHAR},
       </if>
       <if test="record.time != null">
-        time = #{record.time,jdbcType=DATE},
+        time = #{record.time,jdbcType=TIMESTAMP},
       </if>
       <if test="record.level != null">
         level = #{record.level,jdbcType=INTEGER},
@@ -210,7 +210,7 @@
     update comment
     set id = #{record.id,jdbcType=VARCHAR},
       cusName = #{record.cusname,jdbcType=VARCHAR},
-      time = #{record.time,jdbcType=DATE},
+      time = #{record.time,jdbcType=TIMESTAMP},
       level = #{record.level,jdbcType=INTEGER},
       room_number = #{record.roomNumber,jdbcType=CHAR},
       introduce = #{record.introduce,jdbcType=LONGVARCHAR}
@@ -222,7 +222,7 @@
     update comment
     set id = #{record.id,jdbcType=VARCHAR},
       cusName = #{record.cusname,jdbcType=VARCHAR},
-      time = #{record.time,jdbcType=DATE},
+      time = #{record.time,jdbcType=TIMESTAMP},
       level = #{record.level,jdbcType=INTEGER},
       room_number = #{record.roomNumber,jdbcType=CHAR}
     <if test="_parameter != null">
@@ -236,7 +236,7 @@
         cusName = #{cusname,jdbcType=VARCHAR},
       </if>
       <if test="time != null">
-        time = #{time,jdbcType=DATE},
+        time = #{time,jdbcType=TIMESTAMP},
       </if>
       <if test="level != null">
         level = #{level,jdbcType=INTEGER},
@@ -253,7 +253,7 @@
   <update id="updateByPrimaryKeyWithBLOBs" parameterType="cn.com.ecjtu.pojo.Comment">
     update comment
     set cusName = #{cusname,jdbcType=VARCHAR},
-      time = #{time,jdbcType=DATE},
+      time = #{time,jdbcType=TIMESTAMP},
       level = #{level,jdbcType=INTEGER},
       room_number = #{roomNumber,jdbcType=CHAR},
       introduce = #{introduce,jdbcType=LONGVARCHAR}
@@ -262,7 +262,7 @@
   <update id="updateByPrimaryKey" parameterType="cn.com.ecjtu.pojo.Comment">
     update comment
     set cusName = #{cusname,jdbcType=VARCHAR},
-      time = #{time,jdbcType=DATE},
+      time = #{time,jdbcType=TIMESTAMP},
       level = #{level,jdbcType=INTEGER},
       room_number = #{roomNumber,jdbcType=CHAR}
     where id = #{id,jdbcType=VARCHAR}

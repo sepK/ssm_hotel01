@@ -31,7 +31,7 @@ public class OrderInfoController {
     public Msg getOrders(@RequestParam("pn") Integer pn){
         PageHelper.startPage(pn,10);
         List<OrderInfo> list = orderInfoService.getOrders();
-        PageInfo<OrderInfo> pageInfo = new PageInfo<OrderInfo>(list,10);
+        PageInfo<OrderInfo> pageInfo = new PageInfo<OrderInfo>(list,5);
         return Msg.success().add("pageInfo", pageInfo);
     }
 

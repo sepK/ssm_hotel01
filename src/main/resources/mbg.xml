@@ -20,19 +20,19 @@
 
 		<!-- 指定javaBean生成的位置 -->
 		<javaModelGenerator targetPackage="cn.com.ecjtu.pojo"
-			targetProject="src">
+			targetProject="src/main/java">
 			<property name="enableSubPackages" value="true" />
 			<property name="trimStrings" value="true" />
 		</javaModelGenerator>
 
 		<!--指定sql映射文件生成的位置 -->
-		<sqlMapGenerator targetPackage="cn.com.ecjtu.mapper" targetProject="src">
+		<sqlMapGenerator targetPackage="cn.com.ecjtu.mapper" targetProject="src/main/java">
 			<property name="enableSubPackages" value="true" />
 		</sqlMapGenerator>
 
 		<!-- 指定dao接口生成的位置，mapper接口 -->
 		<javaClientGenerator type="XMLMAPPER"
-			targetPackage="cn.com.ecjtu.mapper" targetProject="src">
+			targetPackage="cn.com.ecjtu.mapper" targetProject="src/main/java">
 			<property name="enableSubPackages" value="true" />
 		</javaClientGenerator>
 
@@ -44,6 +44,7 @@
 		<table tableName="intake" domainObjectName="Intake"></table>
 		<table tableName="room" domainObjectName="Room"></table>
 		<table tableName="orderInfo" domainObjectName="OrderInfo"></table>
-		
+		<table tableName="admin" domainObjectName="Admin"></table>
+		<table tableName="photo" domainObjectName="Photo"></table>
 	</context>
 </generatorConfiguration>

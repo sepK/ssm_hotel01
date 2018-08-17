@@ -1,8 +1,8 @@
 package cn.com.ecjtu.service;
 
-import java.util.List;
-
 import cn.com.ecjtu.pojo.Customer;
+
+import java.util.List;
 
 public interface CustomerService {
 

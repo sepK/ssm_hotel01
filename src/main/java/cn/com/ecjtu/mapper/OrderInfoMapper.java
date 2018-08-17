@@ -22,12 +22,6 @@ public interface OrderInfoMapper {
 
     OrderInfo selectByPrimaryKey(Integer id);
 
-    List<OrderInfo> selectByExampleWithBLOBsAndOthers(OrderInfoExample example);
-
-    List<OrderInfo> selectByExampleWithOthers(OrderInfoExample example);
-
-    OrderInfo selectByPrimaryKeyWithOthers(Integer id);
-
     int updateByExampleSelective(@Param("record") OrderInfo record, @Param("example") OrderInfoExample example);
 
     int updateByExampleWithBLOBs(@Param("record") OrderInfo record, @Param("example") OrderInfoExample example);

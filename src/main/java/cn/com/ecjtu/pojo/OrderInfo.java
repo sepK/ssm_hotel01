@@ -5,17 +5,11 @@ public class OrderInfo {
 
     private Integer roomid;
 
-    //private Room room;
-
     private String cusname;
-
-    //private Customer customer;
 
     private Integer ostatus;
 
     private Integer empId;
-
-   //private Employee employee;
 
     private String introduce;
 
@@ -66,28 +60,4 @@ public class OrderInfo {
     public void setIntroduce(String introduce) {
         this.introduce = introduce == null ? null : introduce.trim();
     }
-
-/*    public Room getRoom() {
-        return room;
-    }
-
-    public void setRoom(Room room) {
-        this.room = room;
-    }
-
-    public Customer getCustomer() {
-        return customer;
-    }
-
-    public void setCustomer(Customer customer) {
-        this.customer = customer;
-    }
-
-    public Employee getEmployee() {
-        return employee;
-    }
-
-    public void setEmployee(Employee employee) {
-        this.employee = employee;
-    }*/
 }

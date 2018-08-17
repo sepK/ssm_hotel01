@@ -4,11 +4,11 @@ import java.util.List;
 
 import javax.annotation.Resource;
 
-import org.springframework.stereotype.Service;
-
 import cn.com.ecjtu.mapper.CustomerMapper;
 import cn.com.ecjtu.pojo.Customer;
 import cn.com.ecjtu.pojo.CustomerExample;
+import org.springframework.stereotype.Service;
+
 import cn.com.ecjtu.pojo.CustomerExample.Criteria;
 import cn.com.ecjtu.service.CustomerService;
 @Service

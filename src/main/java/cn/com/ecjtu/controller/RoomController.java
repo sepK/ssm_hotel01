@@ -26,7 +26,7 @@ public class RoomController {
     public Msg getRooms(@RequestParam() Integer pn){
         PageHelper.startPage(pn,10);
         List<Room> list = roomService.getRooms();
-        PageInfo<Room> pageInfo = new PageInfo<Room>(list,10);
+        PageInfo<Room> pageInfo = new PageInfo<Room>(list,5);
         return Msg.success().add("pageInfo",pageInfo);
     }
 

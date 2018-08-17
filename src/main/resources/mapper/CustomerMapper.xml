@@ -101,7 +101,7 @@
     </if>
   </delete>
   <insert id="insert" parameterType="cn.com.ecjtu.pojo.Customer">
-    insert into customer (id, customer_name, password,
+    insert into customer (id, customer_name, password, 
       sex, phone, mail)
     values (#{id,jdbcType=INTEGER}, #{customerName,jdbcType=VARCHAR}, #{password,jdbcType=VARCHAR}, 
       #{sex,jdbcType=CHAR}, #{phone,jdbcType=VARCHAR}, #{mail,jdbcType=VARCHAR})

@@ -1,5 +1,7 @@
 package cn.com.ecjtu.pojo;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+
 import java.util.Date;
 
 public class Comment {
@@ -31,6 +33,7 @@ public class Comment {
         this.cusname = cusname == null ? null : cusname.trim();
     }
 
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss",timezone = "GMT+8")
     public Date getTime() {
         return time;
     }

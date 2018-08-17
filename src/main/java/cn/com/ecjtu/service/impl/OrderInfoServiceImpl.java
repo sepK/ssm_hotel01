@@ -2,7 +2,6 @@ package cn.com.ecjtu.service.impl;
 
 import cn.com.ecjtu.exception.*;
 import cn.com.ecjtu.mapper.OrderInfoMapper;
-import cn.com.ecjtu.mapper.RoomMapper;
 import cn.com.ecjtu.pojo.OrderInfo;
 import cn.com.ecjtu.pojo.OrderInfoExample;
 import cn.com.ecjtu.pojo.Room;

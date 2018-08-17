@@ -33,7 +33,7 @@ public class CustomerController {
 	public Msg getCustomers(@RequestParam(value = "pn", defaultValue = "1") Integer pn) {
 		PageHelper.startPage(pn, 10);
 		List<Customer> list = customerService.getCustomers();
-		PageInfo<Customer> pageInfo = new PageInfo<Customer>(list,10);
+		PageInfo<Customer> pageInfo = new PageInfo<Customer>(list,5);
 		return Msg.success().add("pageInfo", pageInfo);
 	}
 	
