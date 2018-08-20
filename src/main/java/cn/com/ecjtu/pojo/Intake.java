@@ -1,5 +1,7 @@
 package cn.com.ecjtu.pojo;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+
 import java.util.Date;
 
 public class Intake {
@@ -14,6 +16,18 @@ public class Intake {
     private Date endTime;
 
     private Double money;
+
+    public Intake() {
+    }
+
+    public Intake(Integer id, Integer roomid, String cusname, Date startTime, Date endTime, Double money) {
+        this.id = id;
+        this.roomid = roomid;
+        this.cusname = cusname;
+        this.startTime = startTime;
+        this.endTime = endTime;
+        this.money = money;
+    }
 
     public Integer getId() {
         return id;
@@ -39,6 +53,7 @@ public class Intake {
         this.cusname = cusname == null ? null : cusname.trim();
     }
 
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss",timezone = "GMT+8")
     public Date getStartTime() {
         return startTime;
     }
@@ -47,6 +62,7 @@ public class Intake {
         this.startTime = startTime;
     }
 
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss",timezone = "GMT+8")
     public Date getEndTime() {
         return endTime;
     }

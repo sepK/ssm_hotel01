@@ -1,5 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-         pageEncoding="UTF-8" %>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -15,7 +14,7 @@
     <script src="${BasePath }/static/bootstrap/js/bootstrap.min.js"></script>
 </head>
 <body>
-<div class="modal fade" id="orderUpdateModal" tabindex="-1" role="dialog"
+<div class="modal fade" id="intakeUpdateModal" tabindex="-1" role="dialog"
      aria-labelledby="myModalLabel">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
@@ -24,10 +23,17 @@
                         aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
-                <h4 class="modal-title" id="myModalLabel">订单信息修改</h4>
+                <h4 class="modal-title" id="myModalLabel">入住信息修改</h4>
             </div>
             <div class="modal-body">
                 <form class="form-horizontal">
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label">ID</label>
+                        <div class="col-sm-10">
+                            <input type="text" name="id" class="form-control" id="id_update_input" readonly="readonly"/>
+                            <span class="help-block"></span>
+                        </div>
+                    </div>
                     <div class="form-group">
                         <label class="col-sm-2 control-label">房间ID</label>
                         <div class="col-sm-10">
@@ -36,35 +42,30 @@
                         </div>
                     </div>
                     <div class="form-group">
-                        <label class="col-sm-2 control-label">客户名</label>
+                        <label class="col-sm-2 control-label">客户名称</label>
                         <div class="col-sm-10">
                             <input type="text" name="cusname" class="form-control" id="cusname_update_input" readonly="readonly"/>
                             <span class="help-block"></span>
                         </div>
                     </div>
                     <div class="form-group">
-                        <label class="col-sm-2 control-label">客房状态</label>
+                        <label class="col-sm-2 control-label">开始时间</label>
                         <div class="col-sm-10">
-                            <select class="form-control" name="ostatus">
-                                <option value="1">预定</option>
-                                <option value="2">入住</option>
-                                <option value="3">退房</option>
-                                <option value="0">完成</option>
-                            </select>
+                            <input type="datetime" name="startTime" class="form-control" id="startTime_update_input">
                             <span class="help-block"></span>
                         </div>
                     </div>
                     <div class="form-group">
-                        <label class="col-sm-2 control-label">负责人ID</label>
+                        <label class="col-sm-2 control-label">结束时间</label>
                         <div class="col-sm-10">
-                            <input type="text" name="empId" class="form-control" id="empId_update_input">
+                            <input type="datetime" name="endTime" class="form-control" id="endTime_update_input">
                             <span class="help-block"></span>
                         </div>
                     </div>
                     <div class="form-group">
-                        <label class="col-sm-2 control-label">备注</label>
+                        <label class="col-sm-2 control-label">消费</label>
                         <div class="col-sm-10">
-                            <input type="text" name="introduce" class="form-control" id="introduce_update_input">
+                            <input type="text" name="money" class="form-control" id="money_update_input">
                             <span class="help-block"></span>
                         </div>
                     </div>
@@ -72,12 +73,12 @@
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
-                <button type="button" class="btn btn-primary" id="order_update_btn">保存</button>
+                <button type="button" class="btn btn-primary" id="intake_update_btn">保存</button>
             </div>
         </div>
     </div>
 </div>
-<div class="modal fade" id="orderAddModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+<div class="modal fade" id="intakeAddModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
@@ -92,40 +93,35 @@
                     <div class="form-group">
                         <label class="col-sm-2 control-label">房间ID</label>
                         <div class="col-sm-10">
-                            <input type="text" name="roomid" class="form-control" id="roomid_add_input">
+                            <input type="text" name="roomid" class="form-control" id="roomid_add_input"/>
                             <span class="help-block"></span>
                         </div>
                     </div>
                     <div class="form-group">
-                        <label class="col-sm-2 control-label">客户名</label>
+                        <label class="col-sm-2 control-label">客户名称</label>
                         <div class="col-sm-10">
-                            <input type="text" name="cusname" class="form-control" id="cusname_add_input">
+                            <input type="text" name="cusname" class="form-control" id="cusname_add_input"/>
                             <span class="help-block"></span>
                         </div>
                     </div>
                     <div class="form-group">
-                        <label class="col-sm-2 control-label">客房状态</label>
+                        <label class="col-sm-2 control-label">开始时间</label>
                         <div class="col-sm-10">
-                            <select class="form-control" name="ostatus">
-                                <option value="1">预定</option>
-                                <option value="2">入住</option>
-                                <option value="3">退房</option>
-                                <option value="0">完成</option>
-                            </select>
+                            <input type="datetime" name="startTime" class="form-control" id="startTime_add_input">
                             <span class="help-block"></span>
                         </div>
                     </div>
                     <div class="form-group">
-                        <label class="col-sm-2 control-label">负责人ID</label>
+                        <label class="col-sm-2 control-label">结束时间</label>
                         <div class="col-sm-10">
-                            <input type="text" name="empId" class="form-control" id="empId_add_input">
+                            <input type="datetime" name="endTime" class="form-control" id="endTime_add_input">
                             <span class="help-block"></span>
                         </div>
                     </div>
                     <div class="form-group">
-                        <label class="col-sm-2 control-label">备注</label>
+                        <label class="col-sm-2 control-label">消费</label>
                         <div class="col-sm-10">
-                            <input type="text" name="introduce" class="form-control" id="introduce_add_input">
+                            <input type="text" name="money" class="form-control" id="money_add_input">
                             <span class="help-block"></span>
                         </div>
                     </div>
@@ -133,7 +129,7 @@
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
-                <button type="button" class="btn btn-primary" id="order_add_btn">保存</button>
+                <button type="button" class="btn btn-primary" id="intake_add_btn">保存</button>
             </div>
         </div>
     </div>
@@ -144,9 +140,9 @@
         <li role="presentation"><a href="${BasePath }/customer/index">会员管理</a></li>
         <li role="presentation"><a href="${BasePath }/room/index02">客房管理</a></li>
         <li role="presentation"><a href="${BasePath }/employee/index03">员工管理</a></li>
-        <li role="presentation" class="active"><a href="${BasePath }/order/index04">订单管理</a></li>
+        <li role="presentation"><a href="${BasePath }/order/index04">订单管理</a></li>
         <li role="presentation"><a href="${BasePath }/comment/index05">评论管理</a></li>
-        <li role="presentation"><a href="${BasePath }/intake/index06">入住管理</a></li>
+        <li role="presentation" class="active"><a href="${BasePath }/intake/index06">入住管理</a></li>
     </ul>
     <!-- 标题 -->
     <div class="row">
@@ -157,15 +153,15 @@
     <!-- 按钮 -->
     <div class="row">
         <div class="col-md-2 col-md-offset-4">
-            <input type="text" name="roomid" id="roomid_search_input" placeholder="请输入要查询的订单号" />
+            <input type="text" name="cusname" id="cusname_search_input" placeholder="请输入要查询的用户名" />
             <span class="help-block"></span>
         </div>
         <div class="col-md-1">
-            <button class="btn btn-info" id="order_search_modal_btn">搜索</button>
+            <button class="btn btn-info" id="intake_search_modal_btn">搜索</button>
             <span class="help-block"></span>
         </div>
         <div class="col-md-2 col-md-offset-3">
-            <button class="btn btn-primary" id="order_add_modal_btn">新增</button>
+            <button class="btn btn-primary" id="intake_add_modal_btn">新增</button>
             <span class="help-block"></span>
         </div>
     </div>
@@ -173,15 +169,15 @@
     <div class="row">
         <div class="col-md-12">
             <table class="table table-hover table-striped table-bordered"
-                   id="order_table">
+                   id="intake_table">
                 <thead>
                 <tr>
-                    <th>订单ID</th>
+                    <th>ID</th>
                     <th>房间ID</th>
-                    <th>用户名</th>
-                    <th>订单状态</th>
-                    <th>备注</th>
-                    <th>负责人</th>
+                    <th>客户名称</th>
+                    <th>开始时间</th>
+                    <th>结束时间</th>
+                    <th>消费</th>
                     <th>操作</th>
                 </tr>
                 </thead>
@@ -204,17 +200,17 @@
 <script type="text/javascript">
     var totalRecord, currentPage;
     $(function () {
-        to_page("orders", 1);
+        to_page("intakes", 1);
     });
 
     function to_page(method, pn) {
         $.ajax({
-            url: "${BasePath}/order/" + method,
+            url: "${BasePath}/intake/" + method,
             data: "pn=" + pn,
             type: "GET",
             dataType: "json",
             success: function (result) {
-                build_order_table(result.extend.pageInfo.list);
+                build_intake_table(result.extend.pageInfo.list);
                 build_page_info(result);
                 build_page_nav(method, result);
             }
@@ -222,15 +218,15 @@
     }
 
     //生成table表格内容
-    function build_order_table(result) {
-        $("#order_table tbody").empty();
+    function build_intake_table(result) {
+        $("#intake_table tbody").empty();
         $.each(result, function (index, item) {
             var idTd = $("<td></td>").append(item.id);
-            var roomidTd = $("<td></td>").append(item.roomid);
             var cusnameTd = $("<td></td>").append(item.cusname);
-            var ostatusTd = $("<td></td>").append(item.ostatus == 1?"预定": item.ostatus == 2?"入住":item.ostatus == 3?"退房":"完成");
-            var empIdTd = $("<td></td>").append(item.empId);
-            var introduceTd = $("<td></td>").append(item.introduce);
+            var roomidTd = $("<td></td>").append(item.roomid);
+            var startTimeTd = $("<td></td>").append(item.startTime);
+            var endTimeTd = $("<td></td>").append(item.endTime);
+            var moneyTd = $("<td></td>").append(item.money);
 
 
             var editBtn = $("<button></button>").addClass("btn btn-primary btn-sm edit_btn").append(
@@ -242,8 +238,8 @@
             delBtn.attr("del-id", item.id);
             var btnTd = $("<td></td>").append(editBtn).append(" ").append(delBtn);
             $("<tr></tr>").append(idTd).append(roomidTd).append(cusnameTd)
-                .append(ostatusTd).append(introduceTd).append(empIdTd).append(btnTd)
-                .appendTo("#order_table tbody");
+                .append(startTimeTd).append(endTimeTd).append(moneyTd).append(btnTd)
+                .appendTo("#intake_table tbody");
         });
     }
 
@@ -319,33 +315,34 @@
         $(ele).find(".help-block").text("");
     }
 
-    $("#order_add_modal_btn").click(function () {
-        reset_form("#orderAddModal form");
-        $("#orderAddModal").modal({
+    $("#intake_add_modal_btn").click(function () {
+        reset_form("#intakeAddModal form");
+        $("#intakeAddModal").modal({
             backdrop: "static"
         });
     });
     $(document).on("click", ".edit_btn", function () {
-        getOrder($(this).attr("edit-id"));
+        getIntake($(this).attr("edit-id"));
 
-        $("#order_update_btn").attr("edit-id", $(this).attr("edit-id"));
-        $("#orderUpdateModal").modal({
+        $("#intake_update_btn").attr("edit-id", $(this).attr("edit-id"));
+        $("#intakeUpdateModal").modal({
             backdrop: "static"
         });
     });
 
     //回显信息
-    function getOrder(id) {
+    function getIntake(id) {
         $.ajax({
-            url: "${BasePath}/order/order/" + id,
+            url: "${BasePath}/intake/intake/" + id,
             type: "GET",
             success: function (result) {
-                var orderInfo = result.extend.orderInfo;
-                $("#roomid_update_input").val(orderInfo.roomid);
-                $("#cusname_update_input").val(orderInfo.cusname);
-                $("#orderUpdateModal select").val(orderInfo.ostatus);
-                $("#empId_update_input").val(orderInfo.empId);
-                $("#introduce_update_input").val(orderInfo.introduce);
+                var intake = result.extend.intake;
+                $("#cusname_update_input").val(intake.cusname);
+                $("#id_update_input").val(intake.id);
+                $("#roomid_update_input").val(intake.roomid);
+                $("#startTime_update_input").val(intake.startTime);
+                $("#endTime_update_input").val(intake.endTime);
+                $("#money_update_input").val(intake.money);
             }
         });
     }
@@ -355,60 +352,62 @@
         var id = $(this).attr("del-id");
         if (confirm("确认删除吗？")) {
             $.ajax({
-                url: "${BasePath}/order/order/" + id,
+                url: "${BasePath}/intake/intake/" + id,
                 type: "DELETE",
                 success: function (result) {
                     alert(result.msg);
-                    to_page("orders", currentPage);
+                    to_page("intakes", currentPage);
                 }
             });
         }
     });
     //更新
-    $("#order_update_btn").click(
+    $("#intake_update_btn").click(
         function () {
             $.ajax({
-                url: "${BasePath}/order/order/"
+                url: "${BasePath}/intake/intake/"
                 + $(this).attr("edit-id"),
                 type: "PUT",
-                data: $("#orderUpdateModal form").serialize(),
+                data: $("#intakeUpdateModal form").serialize(),
                 success: function (result) {
-                    $("#orderUpdateModal").modal("hide");
+                    if(result.code == 200){
+                        $("#intakeUpdateModal").modal("hide");
+                    }
                     alert(result.msg);
-                    to_page("orders", currentPage);
+                    to_page("intakes", currentPage);
                 }
             });
         });
     //添加
-    $("#order_add_btn").click(function () {
+    $("#intake_add_btn").click(function () {
         if (!validate_add_form()) {
             return false;
         }
         $.ajax({
-            url: "${BasePath}/order/order",
+            url: "${BasePath}/intake/intake",
             type: "POST",
-            data: $("#orderAddModal form").serialize(),
+            data: $("#intakeAddModal form").serialize(),
             success: function (result) {
                 if(result.code == 400){
                 }else{
-                    $("#orderAddModal").modal("hide");
+                    $("#intakeAddModal").modal("hide");
                 }
                 alert(result.msg);
-                to_page("orders", totalRecord);
+                to_page("intakes", totalRecord);
             }
         });
     });
     //搜索
-    $("#order_search_modal_btn").click(function () {
-        $("#order_table tbody").empty();
+    $("#intake_search_modal_btn").click(function () {
+        $("#intake_table tbody").empty();
         $("#page_info_area").empty();
         $("#page_nav_area").empty();
         $.ajax({
-            url: "${BasePath}/order/searchOrders",
+            url: "${BasePath}/intake/searchIntakes",
             type: "GET",
-            data: "roomid=" + $("#roomid_search_input").val(),
+            data: "cusname=" + $("#cusname_search_input").val(),
             success: function (result) {
-                build_order_table(result.extend.list);
+                build_intake_table(result.extend.intakes);
             }
         });
     });

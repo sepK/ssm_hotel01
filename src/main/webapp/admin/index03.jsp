@@ -144,7 +144,7 @@
         <li role="presentation" class="active"><a href="${BasePath }/employee/index03">员工管理</a></li>
         <li role="presentation"><a href="${BasePath }/order/index04">订单管理</a></li>
         <li role="presentation"><a href="${BasePath }/comment/index05">评论管理</a></li>
-        <li role="presentation"><a href="${BasePath }/index06">订单管理</a></li>
+        <li role="presentation"><a href="${BasePath }/intake/index06">入住管理</a></li>
     </ul>
     <!-- 标题 -->
     <div class="row">
