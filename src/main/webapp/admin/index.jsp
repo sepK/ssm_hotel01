@@ -8,11 +8,13 @@
     <%
         pageContext.setAttribute("BasePath", request.getContextPath());
     %>
-    <script type="text/javascript"
-            src="${BasePath }/static/js/jquery-3.2.1.min.js"></script>
-    <link href="${BasePath }/static/bootstrap/css/bootstrap.min.css"
-          rel="stylesheet">
+    <script type="text/javascript" src="${BasePath }/static/js/jquery-3.2.1.min.js"></script>
+    <link href="${BasePath }/static/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="${BasePath }/static/bootstrap/css/bootstrap.css">
+    <link rel="stylesheet" href="${BasePath }/static/css/index.css">
     <script src="${BasePath }/static/bootstrap/js/bootstrap.min.js"></script>
+    <script src="${BasePath }/static/js/jquery.js"></script>
+    <script src="${BasePath }/static/bootstrap/js/bootstrap.js"></script>
 </head>
 <body>
 <div class="modal fade" id="cusUpdateModal" tabindex="-1" role="dialog"
@@ -146,7 +148,80 @@
 </div>
 <!-- 搭建显示页面 -->
 <div class="container">
-    <ul class="nav nav-pills">
+    <div class="row header">
+        <div class="col-md-2 header-left"><img src="${BasePath}/static/images/logo.png" alt=""></div>
+        <div class="col-md-8 header-center">
+            <ul class="ul">
+                <li><span class="title">酒店后台管理</span></li>
+                <li><input class="search" type="text" name="cusName" id="cusName_search_input" placeholder="请输入要查询的用户名"></li>
+                <li><span class="glyphicon glyphicon-search" id="cus_search_modal_btn"></span></li>
+            </ul>
+        </div>
+        <div class="col-md-2 header-right login">
+            <span class="glyphicon glyphicon-user"></span>
+            <span class="username">${loginUser.adminname}</span>
+        </div>
+    </div>
+</div>
+<div class="content">
+    <div class="left">
+        <ul class="nav nav-pills">
+            <li role="presentation"><a href="${BasePath }/customer/index">会员管理</a></li>
+            <li role="presentation"><a href="${BasePath }/room/index02">客房管理</a></li>
+            <li role="presentation"><a href="${BasePath }/employee/index03">员工管理</a></li>
+            <li role="presentation"><a href="${BasePath }/order/index04">订单管理</a></li>
+            <li role="presentation"><a href="${BasePath }/comment/index05">评论管理</a></li>
+            <li role="presentation"><a href="${BasePath }/intake/index06">入住管理</a></li>
+            <li role="presentation"><a href="${BasePath }/photo/index07">客房照片管理</a></li>
+        </ul>
+    </div>
+    <div class="right">
+        <div class="row">
+            <%--<div class="col-md-2 col-md-offset-4">
+                <input type="text" name="cusName" id="cusName_search_input" placeholder="请输入要查询的用户名">
+                <span class="help-block"></span>
+            </div>
+            <div class="col-md-1">
+                <button class="btn btn-info" id="cus_search_modal_btn">搜索</button>
+                <span class="help-block"></span>
+            </div>--%>
+            <div class="col-md-2 col-md-offset-10">
+                <button class="btn btn-primary" id="cus_add_modal_btn">新增</button>
+                <span class="help-block"></span>
+            </div>
+        </div>
+        <!-- 显示表格数据 -->
+        <div class="row">
+            <div class="col-md-12">
+                <table class="table table-hover table-striped table-bordered"
+                       id="cus_table">
+                    <thead>
+                    <tr>
+                        <th>用户ID</th>
+                        <th>用户名</th>
+                        <th>性别</th>
+                        <th>邮箱</th>
+                        <th>电话</th>
+                        <th>操作</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- 显示分页信息 -->
+        <div class="row">
+            <!--分页文字信息  -->
+            <div class="col-md-6" id="page_info_area"></div>
+            <!-- 分页条信息 -->
+            <div class="col-md-6" id="page_nav_area"></div>
+        </div>
+    </div>
+</div>
+   <%-- <ul class="nav nav-pills">
         <li role="presentation" class="active"><a href="${BasePath }/customer/index">会员管理</a></li>
         <li role="presentation"><a href="${BasePath }/room/index02">客房管理</a></li>
         <li role="presentation"><a href="${BasePath }/employee/index03">员工管理</a></li>
@@ -160,56 +235,58 @@
             <h1>酒店后台管理</h1>
         </div>
     </div>
+
     <!-- 按钮 -->
-    <div class="row">
-        <div class="col-md-2 col-md-offset-4">
-            <input type="text" name="cusName" id="cusName_search_input"
-                   placeholder="请输入要查询的用户名"> <span class="help-block"></span>
-        </div>
-        <!-- <div class="col-md-2">
-        <input type="text" name="phone"  id="phone_search_input" placeholder="请输入要查询的电话">
-        <span class="help-block"></span>
-    </div> -->
-        <div class="col-md-1">
-            <button class="btn btn-info" id="cus_search_modal_btn">搜索</button>
+    <div class="right">
+        <div class="row">
+            <div class="col-md-2 col-md-offset-4">
+                <input type="text" name="cusName" id="cusName_search_input"
+                       placeholder="请输入要查询的用户名"> <span class="help-block"></span>
+            </div>
+            <!-- <div class="col-md-2">
+            <input type="text" name="phone"  id="phone_search_input" placeholder="请输入要查询的电话">
             <span class="help-block"></span>
+        </div> -->
+            <div class="col-md-1">
+                <button class="btn btn-info" id="cus_search_modal_btn">搜索</button>
+                <span class="help-block"></span>
+            </div>
+            <div class="col-md-2 col-md-offset-3">
+                <button class="btn btn-primary" id="cus_add_modal_btn">新增</button>
+                <span class="help-block"></span>
+            </div>
         </div>
-        <div class="col-md-2 col-md-offset-3">
-            <button class="btn btn-primary" id="cus_add_modal_btn">新增</button>
-            <span class="help-block"></span>
+        <!-- 显示表格数据 -->
+        <div class="row">
+            <div class="col-md-12">
+                <table class="table table-hover table-striped table-bordered"
+                       id="cus_table">
+                    <thead>
+                    <tr>
+                        <th>用户ID</th>
+                        <th>用户名</th>
+                        <th>性别</th>
+                        <th>邮箱</th>
+                        <th>电话</th>
+                        <th>操作</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+
+                    </tbody>
+                </table>
+            </div>
         </div>
-    </div>
-    <!-- 显示表格数据 -->
-    <div class="row">
-        <div class="col-md-12">
-            <table class="table table-hover table-striped table-bordered"
-                   id="cus_table">
-                <thead>
-                <tr>
-                    <th>用户ID</th>
-                    <th>用户名</th>
-                    <th>性别</th>
-                    <th>邮箱</th>
-                    <th>电话</th>
-                    <th>操作</th>
-                </tr>
-                </thead>
-                <tbody>
 
-                </tbody>
-            </table>
+        <!-- 显示分页信息 -->
+        <div class="row">
+            <!--分页文字信息  -->
+            <div class="col-md-6" id="page_info_area"></div>
+            <!-- 分页条信息 -->
+            <div class="col-md-6" id="page_nav_area"></div>
         </div>
-    </div>
+    </div>--%>
 
-    <!-- 显示分页信息 -->
-    <div class="row">
-        <!--分页文字信息  -->
-        <div class="col-md-6" id="page_info_area"></div>
-        <!-- 分页条信息 -->
-        <div class="col-md-6" id="page_nav_area"></div>
-    </div>
-
-</div>
 <script type="text/javascript">
     var totalRecord, currentPage;
     $(function () {

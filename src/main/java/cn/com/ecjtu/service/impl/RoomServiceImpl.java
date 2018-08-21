@@ -53,6 +53,6 @@ public class RoomServiceImpl implements RoomService{
         RoomExample example = new RoomExample();
         Criteria criteria = example.createCriteria();
         criteria.andStatusEqualTo(status);
-        return roomMapper.selectByExample(example);
+        return roomMapper.selectByExampleWithBLOBs(example);
     }
 }

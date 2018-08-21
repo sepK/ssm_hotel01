@@ -8,7 +8,10 @@ import javax.servlet.http.HttpServletResponse;
 
 public class LoginInterceptor implements HandlerInterceptor{
     public boolean preHandle(HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse, Object o) throws Exception {
-
+        if(httpServletRequest.getSession().getAttribute("loginUser") != null){
+            return true;
+        }
+        httpServletResponse.sendRedirect("/login");
         return false;
     }
 

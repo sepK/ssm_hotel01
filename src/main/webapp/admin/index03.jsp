@@ -8,11 +8,13 @@
     <%
         pageContext.setAttribute("BasePath", request.getContextPath());
     %>
-    <script type="text/javascript"
-            src="${BasePath }/static/js/jquery-3.2.1.min.js"></script>
-    <link href="${BasePath }/static/bootstrap/css/bootstrap.min.css"
-          rel="stylesheet">
+    <script type="text/javascript" src="${BasePath }/static/js/jquery-3.2.1.min.js"></script>
+    <link href="${BasePath }/static/bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <script src="${BasePath }/static/bootstrap/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="${BasePath }/static/bootstrap/css/bootstrap.css">
+    <link rel="stylesheet" href="${BasePath }/static/css/index.css">
+    <script src="${BasePath }/static/js/jquery.js"></script>
+    <script src="${BasePath }/static/bootstrap/js/bootstrap.js"></script>
 </head>
 <body>
 <div class="modal fade" id="empsUpdateModal" tabindex="-1" role="dialog"
@@ -136,8 +138,71 @@
         </div>
     </div>
 </div>
-<!-- 搭建显示页面 -->
 <div class="container">
+    <div class="row header">
+        <div class="col-md-2 header-left"><img src="${BasePath}/static/images/logo.png" alt=""></div>
+        <div class="col-md-8 header-center">
+            <ul class="ul">
+                <li><span class="title">酒店后台管理</span></li>
+                <li><input class="search" type="text" name="empName" id="empName_search_input" placeholder="请输入要查询的员工名">
+                </li>
+                <li><span class="glyphicon glyphicon-search" id="emps_search_modal_btn"></span></li>
+            </ul>
+        </div>
+        <div class="col-md-2 header-right login">
+            <span class="glyphicon glyphicon-user"></span>
+            <span class="username">${loginUser.adminname}</span>
+        </div>
+    </div>
+</div>
+<div class="content">
+    <div class="left">
+        <ul class="nav nav-pills">
+            <li role="presentation"><a href="${BasePath }/customer/index">会员管理</a></li>
+            <li role="presentation"><a href="${BasePath }/room/index02">客房管理</a></li>
+            <li role="presentation"><a href="${BasePath }/employee/index03">员工管理</a></li>
+            <li role="presentation"><a href="${BasePath }/order/index04">订单管理</a></li>
+            <li role="presentation"><a href="${BasePath }/comment/index05">评论管理</a></li>
+            <li role="presentation"><a href="${BasePath }/intake/index06">入住管理</a></li>
+            <li role="presentation"><a href="${BasePath }/photo/index07">客房照片管理</a></li>
+        </ul>
+    </div>
+    <div class="right">
+        <div class="row">
+            <div class="col-md-2 col-md-offset-10">
+                <button class="btn btn-primary" id="emps_add_modal_btn">新增</button>
+                <span class="help-block"></span>
+            </div>
+        </div>
+        <!-- 显示表格数据 -->
+        <div class="row">
+            <div class="col-md-12">
+                <table class="table table-hover table-striped table-bordered" id="emps_table">
+                    <thead>
+                    <tr>
+                        <th>用户ID</th>
+                        <th>用户名称</th>
+                        <th>性别</th>
+                        <th>年龄</th>
+                        <th>电话</th>
+                        <th>职务</th>
+                        <th>操作</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6" id="page_info_area"></div>
+            <div class="col-md-6" id="page_nav_area"></div>
+        </div>
+    </div>
+</div>
+<!-- 搭建显示页面 -->
+<%--<div class="container">
     <ul class="nav nav-pills">
         <li role="presentation"><a href="${BasePath }/customer/index">会员管理</a></li>
         <li role="presentation"><a href="${BasePath }/room/index02">客房管理</a></li>
@@ -198,7 +263,7 @@
         <div class="col-md-6" id="page_nav_area"></div>
     </div>
 
-</div>
+</div>--%>
 <script type="text/javascript">
     var totalRecord, currentPage;
     $(function () {
@@ -340,10 +405,10 @@
             success: function (result) {
                 var emp = result.extend.emp;
                 $("#empName_update_input").val(emp.empName);
-                if(emp.sex == "男"){
-                    $("#sex_update_input1").attr("checked","checked");
-                }else{
-                    $("#sex_update_input2").attr("checked","checked");
+                if (emp.sex == "男") {
+                    $("#sex_update_input1").attr("checked", "checked");
+                } else {
+                    $("#sex_update_input2").attr("checked", "checked");
                 }
                 $("#age_update_input").val(emp.age);
                 $("#phone_update_input").val(emp.phone);
@@ -431,19 +496,20 @@
             $(ele).next("span").text(msg);
         }
     }
+
     $("#empName_add_input").change(function () {
         $.ajax({
-            url:"${BasePath}/employee/checkEmpName",
-            type:"GET",
-            data:"empName="+$(this).val(),
-            success:function (result) {
-                   if(result.code == 400){
-                       show_validate_msg("#empName_add_input","error","用户名已经存在");
-                       $("#empName_add_input").attr("ajax-va", "error");
-                   }else{
-                       show_validate_msg("#empName_add_input","success","");
-                       $("#empName_add_input").attr("ajax-va", "success");
-                   }
+            url: "${BasePath}/employee/checkEmpName",
+            type: "GET",
+            data: "empName=" + $(this).val(),
+            success: function (result) {
+                if (result.code == 400) {
+                    show_validate_msg("#empName_add_input", "error", "用户名已经存在");
+                    $("#empName_add_input").attr("ajax-va", "error");
+                } else {
+                    show_validate_msg("#empName_add_input", "success", "");
+                    $("#empName_add_input").attr("ajax-va", "success");
+                }
             }
         });
     });
