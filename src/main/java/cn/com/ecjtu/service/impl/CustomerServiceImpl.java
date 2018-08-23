@@ -51,4 +51,12 @@ public class CustomerServiceImpl implements CustomerService{
 		return customerMapper.selectByExample(example).size() == 0;
 	}
 
+	public boolean login(Customer customer) {
+		CustomerExample example = new CustomerExample();
+        Criteria criteria = example.createCriteria();
+        criteria.andCustomerNameEqualTo(customer.getCustomerName());
+        criteria.andPasswordEqualTo(customer.getPassword());
+        return customerMapper.selectByExample(example) != null;
+	}
+
 }

@@ -8,6 +8,7 @@
     <link href="${BasePath }/static/bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="${BasePath }/static/bootstrap/css/bootstrap.css">
     <link rel="stylesheet" href="${BasePath }/static/css/index.css">
+    <link rel="shortcut icon" href="${BasePath }/app/favicon.ico" />
     <script src="${BasePath }/static/bootstrap/js/bootstrap.min.js"></script>
     <script src="${BasePath }/static/js/jquery.js"></script>
     <script src="${BasePath }/static/bootstrap/js/bootstrap.js"></script>
@@ -28,7 +29,8 @@
                     <div class="form-group">
                         <label class="col-sm-2 control-label">ID</label>
                         <div class="col-sm-10">
-                            <input type="text" name="id" class="form-control" id="id_update_input" readonly="readonly"> <span class="help-block"></span>
+                            <input type="text" name="id" class="form-control" id="id_update_input" readonly="readonly">
+                            <span class="help-block"></span>
                         </div>
                     </div>
                     <div class="form-group">
@@ -93,7 +95,8 @@
         <div class="col-md-8 header-center">
             <ul class="ul">
                 <li><span class="title">酒店后台管理</span></li>
-                <li><input class="search" type="text" name="roomId" id="roomId_search_input" placeholder="请输入要查询的房间号"></li>
+                <li><input class="search" type="text" name="roomId" id="roomId_search_input" placeholder="请输入要查询的房间号">
+                </li>
                 <li><span class="glyphicon glyphicon-search" id="photo_search_modal_btn"></span></li>
             </ul>
         </div>
@@ -177,7 +180,7 @@
         $.each(result, function (index, item) {
             var idTd = $("<td></td>").append(item.id);
             var roomIdTd = $("<td></td>").append(item.roomId);
-            var pictureTd = "<td><img src=${BasePath}"+item.picture +" style='width:100px;height:50px' /></td>"
+            var pictureTd = "<td><img src=${BasePath}" + item.picture + " style='width:50px;height:25px' /></td>"
 
             var editBtn = $("<button></button>").addClass("btn btn-primary btn-sm edit_btn").append(
                 $("<span></span>").addClass("glyphicon glyphicon-pencil")).append("编辑");
@@ -314,15 +317,15 @@
         formData.append("id", $("#id_update_input").val());
         formData.append("roomId", $("#roomId_update_input").val());
         $.ajax({
-            url:"${BasePath}/photo/photo",
-            type:"POST",
+            url: "${BasePath}/photo/photo",
+            type: "POST",
             data: formData,
             dataType: "json",
-            cache:false,
-            processData:false,
-            contentType:false,
-            success:function(result){
-                if(result.code == 200){
+            cache: false,
+            processData: false,
+            contentType: false,
+            success: function (result) {
+                if (result.code == 200) {
                     $("#photoUpdateModal").modal("hide");
                     to_page("photos", currentPage);
                 }
@@ -336,15 +339,15 @@
         formData.append("file", $("#picture_add_input")[0].files[0]);
         formData.append("roomId", $("#roomId_add_input").val());
         $.ajax({
-            url:"${BasePath}/photo/addPhoto",
-            type:"POST",
+            url: "${BasePath}/photo/addPhoto",
+            type: "POST",
             data: formData,
             dataType: "json",
-            cache:false,
-            processData:false,
-            contentType:false,
-            success:function(result){
-                if(result.code == 200){
+            cache: false,
+            processData: false,
+            contentType: false,
+            success: function (result) {
+                if (result.code == 200) {
                     $("#photoAddModal").modal("hide");
                     to_page("photos", totalRecord);
                 }

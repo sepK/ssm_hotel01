@@ -12,6 +12,7 @@
     <script src="${BasePath }/static/bootstrap/js/bootstrap.min.js"></script>
     <link rel="stylesheet" href="${BasePath }/static/bootstrap/css/bootstrap.css">
     <link rel="stylesheet" href="${BasePath }/static/css/index.css">
+    <link rel="shortcut icon" href="${BasePath }/app/favicon.ico" />
     <script src="${BasePath }/static/js/jquery.js"></script>
     <script src="${BasePath }/static/bootstrap/js/bootstrap.js"></script>
 </head>
@@ -39,14 +40,16 @@
                     <div class="form-group">
                         <label class="col-sm-2 control-label">房间ID</label>
                         <div class="col-sm-10">
-                            <input type="text" name="roomid" class="form-control" id="roomid_update_input" readonly="readonly"/>
+                            <input type="text" name="roomid" class="form-control" id="roomid_update_input"
+                                   readonly="readonly"/>
                             <span class="help-block"></span>
                         </div>
                     </div>
                     <div class="form-group">
                         <label class="col-sm-2 control-label">客户名称</label>
                         <div class="col-sm-10">
-                            <input type="text" name="cusname" class="form-control" id="cusname_update_input" readonly="readonly"/>
+                            <input type="text" name="cusname" class="form-control" id="cusname_update_input"
+                                   readonly="readonly"/>
                             <span class="help-block"></span>
                         </div>
                     </div>
@@ -84,8 +87,7 @@
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal"
-                        aria-label="Close">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
                 <h4 class="modal-title" id="myModalLabel02">订单信息新增</h4>
@@ -143,7 +145,8 @@
         <div class="col-md-8 header-center">
             <ul class="ul">
                 <li><span class="title">酒店后台管理</span></li>
-                <li><input class="search" type="text" name="cusname" id="cusname_search_input" placeholder="请输入要查询的用户名"></li>
+                <li><input class="search" type="text" name="cusname" id="cusname_search_input" placeholder="请输入要查询的用户名">
+                </li>
                 <li><span class="glyphicon glyphicon-search" id="intake_search_modal_btn"></span></li>
             </ul>
         </div>
@@ -434,7 +437,7 @@
                 type: "PUT",
                 data: $("#intakeUpdateModal form").serialize(),
                 success: function (result) {
-                    if(result.code == 200){
+                    if (result.code == 200) {
                         $("#intakeUpdateModal").modal("hide");
                     }
                     alert(result.msg);
@@ -452,8 +455,8 @@
             type: "POST",
             data: $("#intakeAddModal form").serialize(),
             success: function (result) {
-                if(result.code == 400){
-                }else{
+                if (result.code == 400) {
+                } else {
                     $("#intakeAddModal").modal("hide");
                 }
                 alert(result.msg);

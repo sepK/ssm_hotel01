@@ -1,0 +1,342 @@
+<header id="header">
+    <!-- HEADER TOP -->
+    <div class="header_top">
+        <div class="container">
+            <div class="header_left float-left">
+                <span><i class="lotus-icon-cloud"></i> 18 °C</span>
+                <span><i class="lotus-icon-location"></i> 龙岗区, 深圳</span>
+                <span><i class="lotus-icon-phone"></i> 0793-6666666</span>
+            </div>
+            <div class="header_right float-right">
+                <span class="login-register">
+                    <a id="login_modal_btn">登陆</a>
+                    <a id="register_modal_btn">注册</a>
+                </span>
+                <div class="dropdown currency">
+                    <span>RMB <i class="fa fa"></i></span>
+                    <ul>
+                        <li class="active"><a href="#">USD</a></li>
+                        <li><a href="#">EUR</a></li>
+                    </ul>
+                </div>
+                <div class="dropdown language">
+                    <span>英文</span>
+                    <ul>
+                        <li class="active"><a href="#">英语</a></li>
+                        <li><a href="#">法文</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- END / HEADER TOP -->
+    <!-- HEADER LOGO & MENU -->
+    <div class="header_content" id="header_content">
+        <div class="container">
+            <!-- HEADER LOGO -->
+            <div class="header_logo">
+                <a href="main.html"><img src="images/logo-header.png" alt=""></a>
+            </div>
+            <!-- END / HEADER LOGO -->
+            <!-- HEADER MENU -->
+            <nav class="header_menu">
+                <ul class="menu">
+                    <li><a href="main.html">首页</a></li>
+                    <li><a href="room.html">房间</a></li>
+                    <li><a href="restaurants.html">饭店</a></li>
+                    <li><a href="contact.html">联系</a></li>
+                    <li><a href="order.html">订单</a></li>
+                </ul>
+            </nav>
+            <!-- END / HEADER MENU -->
+            <!-- MENU BAR -->
+            <span class="menu-bars"><span></span></span>
+            <!-- END / MENU BAR -->
+        </div>
+    </div>
+    <!-- END / HEADER LOGO & MENU -->
+</header>
+<div class="modal fade" id="cusUpdateModal" tabindex="-1" role="dialog"
+     aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                <h4 class="modal-title" id="myModalLabel">登录</h4>
+            </div>
+            <div class="modal-body">
+                <form class="form-horizontal">
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label">用户名</label>
+                        <div class="col-sm-10">
+                            <input type="text" name="customerName" class="form-control" id="cusName_update_input">
+                            <span class="help-block"></span>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label">密码</label>
+                        <div class="col-sm-10">
+                            <input type="password" class="form-control" name="password" id="password_update_input"/>
+                            <span class="help-block"></span>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+                <button type="button" class="btn btn-primary" id="cus_login_btn">登录</button>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal fade" id="cusAddModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                <h4 class="modal-title" id="myModalLabel02">注册</h4>
+            </div>
+            <div class="modal-body">
+                <form class="form-horizontal">
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label">用户名</label>
+                        <div class="col-sm-10">
+                            <input type="text" name="customerName" class="form-control" id="cusName_add_input">
+                            <span class="help-block"></span>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label">密码</label>
+                        <div class="col-sm-10">
+                            <input type="password" name="password" class="form-control" id="cusPassWord_add_input">
+                            <span class="help-block"></span>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label">性别</label>
+                        <div class="col-sm-10">
+                            <label class="radio-inline">
+                                <input type="radio" name="sex" id="sex_add_input1" value="男" checked="checked">男
+                            </label>
+                            <label class="radio-inline">
+                                <input type="radio" name="sex" id="sex_add_input2" value="女"> 女
+                        </label>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label">邮箱</label>
+                        <div class="col-sm-10">
+                            <input type="text" name="mail" class="form-control" id="email_add_input">
+                            <span class="help-block"></span>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label">电话</label>
+                        <div class="col-sm-10">
+                            <input type="text" name="phone" class="form-control" id="phone_add_input">
+                            <span class="help-block"></span>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label">验证码</label>
+                        <div class="col-sm-5">
+                            <input type="text" name="verifyCode" class="form-control" placeholder="请输入验证码" id="verifyCode_add_input"/>
+                            <span class="help-block"></span>
+                        </div>
+                        <div class="col-sm-5">
+                            <img src="/customer/verifyCode" onclick="myRefersh(this)" id="img_add"/>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+                <button type="button" class="btn btn-primary" id="cus_add_btn">保存</button>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    var user = JSON.parse(sessionStorage.getItem("user"));
+    if(user != null){
+        login();
+    }else {
+        $("#register_modal_btn").click(function () {
+            reset_form("#cusAddModal form");
+            myRefersh(document.getElementById("img_add"));
+            $("#cusAddModal").modal({
+                backdrop: "static"
+            });
+        });
+
+        $("#login_modal_btn").click(function () {
+            $("#cusUpdateModal").modal({
+                backdrop: "static"
+            });
+        });
+    }
+    function reset_form(ele) {
+        $(ele)[0].reset();
+        $(ele).find("*").removeClass("has-error has-success");
+        $(ele).find(".help-block").text("");
+    }
+
+
+
+    $("#cus_login_btn").click(function () {
+        $.ajax({
+            url:"/customer/login",
+            type:"POST",
+            data:$("#cusUpdateModal form").serialize(),
+            success:function (result) {
+                alert(result.msg);
+                if(result.code == 200){
+                    sessionStorage.setItem("user",JSON.stringify(result.extend.user));
+                    user = JSON.parse(sessionStorage.getItem("user"));
+                    $("#cusUpdateModal").modal("hide");
+                    login();
+                    window.location.reload();
+                }
+            }
+        });
+    });
+
+    function login() {
+        $("#login_modal_btn").off();
+        $("#register_modal_btn").off();
+        $("#register_modal_btn").html("退出");
+        $("#register_modal_btn").on("click",function () {
+            sessionStorage.removeItem("user");
+            window.location.href="/customer/logout";
+        });
+        $("#login_modal_btn").html(user.customerName);
+    }
+
+    $("#cus_add_btn").click(function () {
+        if (!validate_add_form()) {
+            return false;
+        }
+        $.ajax({
+            url: "/customer/customer",
+            type: "POST",
+            data: $("#cusAddModal form").serialize(),
+            success: function (result) {
+                $("#cusAddModal").modal("hide");
+                alert(result.msg);
+                to_page("customers", totalRecord);
+            }
+        });
+    });
+    function validate_add_form() {
+        //1、拿到要校验的数据，使用正则表达式
+        if ($("#cusName_add_input").attr("ajax-va") == "error") {
+            return false;
+        }
+        if ($("#verifyCode_add_input").attr("ajax-va") == "error") {
+            return false;
+        }
+        var cusName = $("#cusName_add_input").val();
+        var regName = /(^[a-zA-Z0-9_-]{6,16}$)|(^[\u2E80-\u9FFF]{2,5})/;
+        if (!regName.test(cusName)) {
+            show_validate_msg("#cusName_add_input", "error",
+                "用户名可以是2-5位中文或者6-16位英文和数字的组合");
+            return false;
+        } else {
+            show_validate_msg("#cusName_add_input", "success", "");
+        }
+        ;
+
+        //2、校验邮箱信息
+        var email = $("#email_add_input").val();
+        var regEmail = /^([a-z0-9_\.-]+)@([\da-z\.-]+)\.([a-z\.]{2,6})$/;
+        if (!regEmail.test(email)) {
+            show_validate_msg("#email_add_input", "error", "邮箱格式不正确");
+            return false;
+        } else {
+            show_validate_msg("#email_add_input", "success", "");
+        }
+        //3.校验电话信息
+        var phone = $("#phone_add_input").val();
+        var regPhone = /^1[3|4|5|8]\d{9}$/;
+        if (!regPhone.test(phone)) {
+            show_validate_msg("#phone_add_input", "error", "您输入的电话号码格式不正确");
+            return false;
+        } else {
+            show_validate_msg("#phone_add_input", "success", "");
+        }
+        return true;
+    }
+
+    //显示校验结果的提示信息
+    function show_validate_msg(ele, status, msg) {
+        //清除当前元素的校验状态
+        $(ele).parent().removeClass("has-success has-error");
+        $(ele).next("span").text("");
+        if ("success" == status) {
+            $(ele).parent().addClass("has-success");
+            $(ele).next("span").text(msg);
+        } else if ("error" == status) {
+            $(ele).parent().addClass("has-error");
+            $(ele).next("span").text(msg);
+        }
+    }
+
+    $("#cusName_add_input").change(function () {
+        checkName("#cusName_add_input");
+    });
+
+    function checkName(element) {
+        var cusName = $(element).val();
+        $.ajax({
+            url: "/customer/checkName",
+            data: "cusName=" + cusName,
+            type: "POST",
+            success: function (result) {
+                if (result.code == 400) {
+                    show_validate_msg(element, "error", "用户名已存在");
+                    $(element).attr("ajax-va", "error");
+                } else {
+                    show_validate_msg(element, "success", "用户名可用");
+                    $(element).attr("ajax-va", "success");
+                }
+            }
+        });
+    }
+    $("#verifyCode_add_input").change(
+        function () {
+            var verifyCode = $("#verifyCode_add_input").val();
+            $.ajax({
+                url: "/customer/checkVerifyCode",
+                type: "POST",
+                data: "verifyCode=" + verifyCode,
+                success: function (result) {
+                    if (result.code == 400) {
+                        show_validate_msg("#verifyCode_add_input", "error", "验证码错误");
+                        $("#verifyCode_add_input").attr("ajax-va", "error");
+                    } else {
+                        show_validate_msg("#verifyCode_add_input", "success", "");
+                        $("#verifyCode_add_input").attr("ajax-va", "success");
+                    }
+                }
+            });
+        }
+    );
+
+    function myRefersh(e) {
+        const source = e.src; // 获得原来的 src 中的内容
+        var index = source.indexOf("?"); // 从 source 中寻找 ? 第一次出现的位置 (如果不存在则返回 -1 )
+        if (index > -1) { // 如果找到了 ?  就进入内部
+            var s = source.substring(0, index); // 从 source 中截取 index 之前的内容 ( index 以及 index 之后的内容都被舍弃 )
+            var date = new Date(); // 创建一个 Date 对象的 一个 实例
+            var time = date.getTime(); // 从 新创建的 Date 对象的实例中获得该时间对应毫秒值
+            e.src = s + "?time=" + time; // 将 加了 尾巴 的 地址 重新放入到 src 上
+        } else {
+            var date = new Date();
+            e.src = source + "?time=" + date.getTime();
+        }
+    }
+</script>

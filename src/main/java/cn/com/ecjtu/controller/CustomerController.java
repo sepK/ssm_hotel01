@@ -7,6 +7,7 @@ import cn.com.ecjtu.utils.Msg;
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
@@ -71,10 +72,25 @@ public class CustomerController {
 	@ResponseBody
 	public Msg checkName(@RequestParam("cusName") String name) {
 		if(customerService.checkName(name)) {
-			return Msg.fail();
-		}else {
 			return Msg.success();
+		}else {
+			return Msg.fail();
 		}
+	}
+
+	@RequestMapping(value = "/login",method = RequestMethod.POST)
+    @ResponseBody
+    public Msg login(Customer customer, Model model){
+        if(customerService.login(customer)){
+            return Msg.success("登陆成功").add("user",customer);
+        }else{
+            return Msg.fail("用户名或者密码错误");
+        }
+    }
+
+    @RequestMapping(value = "logout",method = RequestMethod.GET)
+	public String logout(){
+		return "redirect:/app/main.html";
 	}
 	
 	@RequestMapping("/checkVerifyCode")

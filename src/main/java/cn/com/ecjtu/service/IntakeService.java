@@ -17,4 +17,6 @@ public interface IntakeService {
     boolean delIntake(Integer id);
 
     List<Intake> searchIntakes(String cusName);
+
+    Intake getIntakeByCusNameAndRoomId(Integer roomid, String cusname);
 }

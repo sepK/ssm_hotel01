@@ -1,5 +1,7 @@
 package cn.com.ecjtu.pojo;
 
+import cn.com.ecjtu.utils.Msg;
+
 public class OrderInfo {
     private Integer id;
 

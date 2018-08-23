@@ -1,11 +1,13 @@
 package cn.com.ecjtu.pojo;
 
-public class Customer {
+import java.io.Serializable;
+
+public class Customer implements Serializable{
     private Integer id;
 
     private String customerName;
 
-    private String password;
+    private transient String password;
 
     private String sex;
 

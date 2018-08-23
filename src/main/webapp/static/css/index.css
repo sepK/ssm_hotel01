@@ -1,95 +1,112 @@
-*{
+* {
     margin: 0;
     padding: 0;
 }
-html,body{
+
+html, body {
     width: 100%;
     height: 100%;
 }
-.container{
+
+.container {
     width: 100%;
     height: 60px;
     background-color: #337ab7;
 }
-.container .header .header-left>img{
+
+.container .header .header-left > img {
     height: 60px;
     width: auto;
 }
-.ul>li{
+
+.ul > li {
     list-style: none;
     float: left;
     width: 300px;
     height: 60px;
 }
-.ul>li>.title{
+
+.ul > li > .title {
     line-height: 60px;
     font-size: 28px;
-    margin-left:60px;
+    margin-left: 60px;
     box-sizing: border-box;
 }
-.ul>li>.search{
+
+.ul > li > .search {
     width: 240px;
     height: 30px;
     margin-top: 15px;
-    margin-left:20px;
+    margin-left: 20px;
     background-color: #fff;
     box-sizing: border-box;
     /*border-radius: 5%;*/
     border: none;
 }
-.ul>li>span{
+
+.ul > li > span {
     display: inline-block;
     font-size: 20px;
     line-height: 60px;
     cursor: pointer;
 }
-.container .header .login>span{
+
+.container .header .login > span {
     display: inline-block;
     margin-left: 25px;
     font-size: 20px;
     line-height: 60px;
     box-sizing: border-box;
 }
-.container .header .login .username{
+
+.container .header .login .username {
     font-size: 23px;
 }
-.content{
+
+.content {
     width: 100%;
     height: 670px;
     overflow: hidden;
 }
-.content .left{
+
+.content .left {
     width: 200px;
     height: 100%;
     float: left;
     background-color: #337ab7;
 }
-.content .left>ul>li{
+
+.content .left > ul > li {
     width: 200px;
     height: 50px;
     text-align: center;
-    line-height:50px;
+    line-height: 50px;
     font-size: 20px;
-    border-bottom:1px solid gray;
+    border-bottom: 1px solid gray;
     cursor: pointer;
 }
-.content .left>ul>li>a{
+
+.content .left > ul > li > a {
     color: white;
     text-decoration: none;
     display: inline-block;
     width: 100%;
     height: 100%;
 }
-.content .left>ul>li:hover{
+
+.content .left > ul > li:hover {
     background-color: darkslateblue;
 }
-.content .left>ul>li:nth-child(1){
-    border-top:1px solid gray;
+
+.content .left > ul > li:nth-child(1) {
+    border-top: 1px solid gray;
 }
-.current{
+
+.current {
     background-color: darkslateblue;
 }
-.content .right{
+
+.content .right {
     width: 1317px;
     height: 100%;
     float: left;

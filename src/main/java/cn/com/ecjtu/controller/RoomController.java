@@ -1,5 +1,6 @@
 package cn.com.ecjtu.controller;
 
+import cn.com.ecjtu.pojo.Picture;
 import cn.com.ecjtu.pojo.Room;
 import cn.com.ecjtu.service.RoomService;
 import cn.com.ecjtu.utils.Msg;
@@ -77,7 +78,7 @@ public class RoomController {
 
     @RequestMapping(value = "/checkRoomNumber", method = RequestMethod.POST)
     @ResponseBody
-    public  Msg checkRoomNumber(@RequestParam("roomNumber") String number){
+    public Msg checkRoomNumber(@RequestParam("roomNumber") String number){
         if(roomService.checkRoomNumber(number)){
             return Msg.success();
         }else {
@@ -85,10 +86,27 @@ public class RoomController {
         }
     }
 
+    @RequestMapping(value = "/emptyRooms",method = RequestMethod.GET)
+    @ResponseBody
+    public Msg emptyRooms(){
+        List<Picture> rooms = roomService.getEmptyRooms();
+        return Msg.success().add("rooms",rooms);
+    }
+
+
     @RequestMapping("/searchByStatus")
     @ResponseBody
     public Msg searchByStatus(@RequestParam("status") short status){
         List<Room> list = roomService.getRoomByStatus(status);
         return Msg.success().add("list",list);
+    }
+
+    @RequestMapping("/pictures")
+    @ResponseBody
+    public Msg pictures(@RequestParam("pn") Integer pn){
+        PageHelper.startPage(pn,3000);
+        List<Picture> list = roomService.getPictures();
+        PageInfo<Picture> pageInfo = new PageInfo<Picture>(list,5);
+        return Msg.success().add("pageInfo",pageInfo);
     }
 }

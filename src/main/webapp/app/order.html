@@ -1,0 +1,163 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>迎宾大酒店</title>
+    <header class="header"></header>
+    <link rel="shortcut icon" href="favicon.ico" />
+    <link rel="stylesheet" type="text/css" href="css/order.css">
+</head>
+<body>
+<!-- PRELOADER -->
+<div id="preloader">
+    <span class="preloader-dot"></span>
+</div>
+<!-- END / PRELOADER -->
+<!-- PAGE WRAP -->
+<div id="page-wrap">
+
+    <!-- HEADER -->
+    <header class="header_menu"></header>
+    <!-- END / HEADER -->
+
+    <!-- SUB BANNER -->
+    <section class="section-sub-banner bg-9">
+        <div class="awe-overlay"></div>
+        <div class="sub-banner">
+            <div class="container">
+                <div class="text text-center">
+                    <h2>订单详情</h2>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="section-room bg-white">
+        <div class="container">
+            <div class="room-wrap-1">
+                <div class="row" id="build_rooms_div">
+                    <!-- ITEM -->
+
+                    <!-- END / ITEM -->
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- FOOTER -->
+    <footer class="footer"></footer>
+    <!-- END / FOOTER -->
+</div>
+<!-- END / PAGE WRAP -->
+<script type="text/javascript" src="js/lib/jquery-1.11.0.min.js"></script>
+<script type="text/javascript" src="js/lib/jquery-ui.min.js"></script>
+<script type="text/javascript" src="js/lib/bootstrap.min.js"></script>
+<script type="text/javascript" src="js/lib/bootstrap-select.js"></script>
+<!--<script src="http://ditu.google.cn/maps/api/js?v=3.exp&amp;signed_in=true"></script>-->
+<script type="text/javascript" src="js/lib/isotope.pkgd.min.js"></script>
+<script type="text/javascript" src="js/lib/jquery.themepunch.revolution.min.js"></script>
+<script type="text/javascript" src="js/lib/jquery.themepunch.tools.min.js"></script>
+<script type="text/javascript" src="js/lib/owl.carousel.js"></script>
+<script type="text/javascript" src="js/lib/jquery.appear.min.js"></script>
+<script type="text/javascript" src="js/lib/jquery.countTo.js"></script>
+<script type="text/javascript" src="js/lib/jquery.countdown.min.js"></script>
+<script type="text/javascript" src="js/lib/jquery.parallax-1.1.3.js"></script>
+<script type="text/javascript" src="js/lib/jquery.magnific-popup.min.js"></script>
+<script type="text/javascript" src="js/lib/SmoothScroll.js"></script>
+<script type="text/javascript" src="js/scripts.js"></script>
+<script>
+    $(function () {
+        $(".header").load("/app/header.html");
+        $(".footer").load("/app/footer.html");
+        $(".header_menu").load("/app/menu.html");
+        if(JSON.parse(sessionStorage.getItem("user")) == null){
+            $("#build_rooms_div").html("<h1>请先登录......</h1>");
+        }else {
+            $.ajax({
+                url: "/order/getIndents",
+                type: "GET",
+                data: "cusname=" + JSON.parse(sessionStorage.getItem("user")).customerName,
+                success: function (result) {
+                    var html = "";
+                    $.each(result.extend.indents, function (index, item) {
+
+                        var ostatus = item.orderInfo.ostatus === 1 ? "预定" : item.orderInfo.ostatus === 2 ? "入住" : item.orderInfo.ostatus === 3 ? "退房" : "完成";
+                        html += "<div class='order'>\n" +
+                                "<div class='pic'><img src='" + item.picture + "' alt=''></div>\n" +
+                                "<div class='hotel'>\n" +
+                                "精致生活,别具一格&nbsp;&nbsp;&nbsp;迎宾大酒店欢迎您!\n" +
+                                "</div>\n" +
+                                "<div class='lis'>\n" +
+                                "<ul>\n" +
+                                "<li>\n" +
+                                "<span>价格</span>\n" +
+                                "<span>" + item.intake.money + "</span>\n" +
+                                "</li>\n" +
+                                "<li>\n" +
+                                "<span>种类</span>\n" +
+                                "<span>总统套房</span>\n" +
+                                "</li>\n" +
+                                "<li>\n" +
+                                "<span>时间</span>\n" +
+                                "<span>" + item.intake.startTime + "~" + item.intake.endTime + "</span>\n" +
+                                "</li>\n" +
+                                "<li>\n" +
+                                "<span class='box'>详情</span>\n" +
+                                "<div class='boxs'>" + item.orderInfo.introduce + "</div>\n" +
+                                "</li>\n" +
+                                "<li>\n" +
+                                "<span>状态</span>\n" +
+                                "<span>" + ostatus + "</span>\n" +
+                                "</li>\n";
+                        if(ostatus === "预定"){
+                            html +=  "<button type='button' class='btn btn-primary pay_btn' pay-id=" + item.orderInfo.id + ">付款</button>\n" ;
+                            html +=  "<button type='button' class='btn btn-warning finsh_btn' finsh-id=" + item.orderInfo.id + ">完成订单</button>\n" ;
+                            html +=  "<button type='button' class='btn btn-danger checkout_btn' checkout-id=" + item.orderInfo.id + ">退房</button>\n" ;
+                        }else if(ostatus === "入住"){
+                            html +=  "<button type='button' class='btn btn-warning finsh_btn' finsh-id=" + item.orderInfo.id + ">完成订单</button>\n" ;
+                            html +=  "<button type='button' class='btn btn-danger checkout_btn' checkout-id=" + item.orderInfo.id + ">退房</button>\n" ;
+                        }else if(ostatus === "退房"){
+                            html +=  "<button type='button' class='btn btn-danger checkout_btn' disabled='disabled'>退房中</button>\n" ;
+                        }else {
+                            html +=  "<button type='button' class='btn btn-warning finsh_btn' disabled='disabled'>订单已经完成</button>\n" ;
+                        }
+                        html += "</ul>\n" +
+                                "</div>\n" +
+                                "</div>";
+                    });
+                    $("#build_rooms_div").html(html);
+                }
+            });
+            $(document).on("click",".pay_btn",function () {
+                $.ajax({
+                    url:"/order/updateIndent",
+                    type:"POST",
+                    data:"id="+$(this).attr("pay-id")+"&ostatus=2",
+                    success:function () {
+                        window.location.reload();
+                    }
+                });
+            });
+            $(document).on("click",".checkout_btn",function () {
+                $.ajax({
+                    url:"/order/updateIndent",
+                    type:"POST",
+                    data:"id="+$(this).attr("checkout-id")+"&ostatus=3",
+                    success:function () {
+                        window.location.reload();
+                    }
+                });
+            });
+            $(document).on("click",".finsh_btn",function () {
+                    $.ajax({
+                        url:"/order/updateIndent",
+                        type:"POST",
+                        data:"id="+$(this).attr("finsh-id")+"&ostatus=0",
+                        success:function () {
+                            window.location.reload();
+                        }
+                    });
+            });
+        }
+    });
+</script>
+</body>
+</html>

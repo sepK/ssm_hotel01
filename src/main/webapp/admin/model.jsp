@@ -18,7 +18,8 @@
         <div class="col-md-8 header-center">
             <ul class="ul">
                 <li><span class="title">酒店后台管理</span></li>
-                <li><input class="search" type="text" name="cusName" id="roomNumber_search_input" placeholder="请输入要查询的用户名"></li>
+                <li><input class="search" type="text" name="cusName" id="roomNumber_search_input"
+                           placeholder="请输入要查询的用户名"></li>
                 <li><span class="glyphicon glyphicon-search" id="room_search_modal_btn"></span></li>
             </ul>
         </div>

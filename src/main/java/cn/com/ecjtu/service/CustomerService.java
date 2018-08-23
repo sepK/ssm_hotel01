@@ -20,4 +20,5 @@ public interface CustomerService {
 
 	boolean checkName(String name);
 
+    boolean login(Customer customer);
 }

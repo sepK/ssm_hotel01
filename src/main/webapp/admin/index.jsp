@@ -12,6 +12,7 @@
     <link href="${BasePath }/static/bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="${BasePath }/static/bootstrap/css/bootstrap.css">
     <link rel="stylesheet" href="${BasePath }/static/css/index.css">
+    <link rel="shortcut icon" href="${BasePath }/app/favicon.ico" />
     <script src="${BasePath }/static/bootstrap/js/bootstrap.min.js"></script>
     <script src="${BasePath }/static/js/jquery.js"></script>
     <script src="${BasePath }/static/bootstrap/js/bootstrap.js"></script>
@@ -153,7 +154,8 @@
         <div class="col-md-8 header-center">
             <ul class="ul">
                 <li><span class="title">酒店后台管理</span></li>
-                <li><input class="search" type="text" name="cusName" id="cusName_search_input" placeholder="请输入要查询的用户名"></li>
+                <li><input class="search" type="text" name="cusName" id="cusName_search_input" placeholder="请输入要查询的用户名">
+                </li>
                 <li><span class="glyphicon glyphicon-search" id="cus_search_modal_btn"></span></li>
             </ul>
         </div>
@@ -221,71 +223,71 @@
         </div>
     </div>
 </div>
-   <%-- <ul class="nav nav-pills">
-        <li role="presentation" class="active"><a href="${BasePath }/customer/index">会员管理</a></li>
-        <li role="presentation"><a href="${BasePath }/room/index02">客房管理</a></li>
-        <li role="presentation"><a href="${BasePath }/employee/index03">员工管理</a></li>
-        <li role="presentation"><a href="${BasePath }/order/index04">订单管理</a></li>
-        <li role="presentation"><a href="${BasePath }/comment/index05">评论管理</a></li>
-        <li role="presentation"><a href="${BasePath }/intake/index06">入住管理</a></li>
-    </ul>
-    <!-- 标题 -->
-    <div class="row">
-        <div class="col-md-12">
-            <h1>酒店后台管理</h1>
-        </div>
-    </div>
+<%-- <ul class="nav nav-pills">
+     <li role="presentation" class="active"><a href="${BasePath }/customer/index">会员管理</a></li>
+     <li role="presentation"><a href="${BasePath }/room/index02">客房管理</a></li>
+     <li role="presentation"><a href="${BasePath }/employee/index03">员工管理</a></li>
+     <li role="presentation"><a href="${BasePath }/order/index04">订单管理</a></li>
+     <li role="presentation"><a href="${BasePath }/comment/index05">评论管理</a></li>
+     <li role="presentation"><a href="${BasePath }/intake/index06">入住管理</a></li>
+ </ul>
+ <!-- 标题 -->
+ <div class="row">
+     <div class="col-md-12">
+         <h1>酒店后台管理</h1>
+     </div>
+ </div>
 
-    <!-- 按钮 -->
-    <div class="right">
-        <div class="row">
-            <div class="col-md-2 col-md-offset-4">
-                <input type="text" name="cusName" id="cusName_search_input"
-                       placeholder="请输入要查询的用户名"> <span class="help-block"></span>
-            </div>
-            <!-- <div class="col-md-2">
-            <input type="text" name="phone"  id="phone_search_input" placeholder="请输入要查询的电话">
-            <span class="help-block"></span>
-        </div> -->
-            <div class="col-md-1">
-                <button class="btn btn-info" id="cus_search_modal_btn">搜索</button>
-                <span class="help-block"></span>
-            </div>
-            <div class="col-md-2 col-md-offset-3">
-                <button class="btn btn-primary" id="cus_add_modal_btn">新增</button>
-                <span class="help-block"></span>
-            </div>
-        </div>
-        <!-- 显示表格数据 -->
-        <div class="row">
-            <div class="col-md-12">
-                <table class="table table-hover table-striped table-bordered"
-                       id="cus_table">
-                    <thead>
-                    <tr>
-                        <th>用户ID</th>
-                        <th>用户名</th>
-                        <th>性别</th>
-                        <th>邮箱</th>
-                        <th>电话</th>
-                        <th>操作</th>
-                    </tr>
-                    </thead>
-                    <tbody>
+ <!-- 按钮 -->
+ <div class="right">
+     <div class="row">
+         <div class="col-md-2 col-md-offset-4">
+             <input type="text" name="cusName" id="cusName_search_input"
+                    placeholder="请输入要查询的用户名"> <span class="help-block"></span>
+         </div>
+         <!-- <div class="col-md-2">
+         <input type="text" name="phone"  id="phone_search_input" placeholder="请输入要查询的电话">
+         <span class="help-block"></span>
+     </div> -->
+         <div class="col-md-1">
+             <button class="btn btn-info" id="cus_search_modal_btn">搜索</button>
+             <span class="help-block"></span>
+         </div>
+         <div class="col-md-2 col-md-offset-3">
+             <button class="btn btn-primary" id="cus_add_modal_btn">新增</button>
+             <span class="help-block"></span>
+         </div>
+     </div>
+     <!-- 显示表格数据 -->
+     <div class="row">
+         <div class="col-md-12">
+             <table class="table table-hover table-striped table-bordered"
+                    id="cus_table">
+                 <thead>
+                 <tr>
+                     <th>用户ID</th>
+                     <th>用户名</th>
+                     <th>性别</th>
+                     <th>邮箱</th>
+                     <th>电话</th>
+                     <th>操作</th>
+                 </tr>
+                 </thead>
+                 <tbody>
 
-                    </tbody>
-                </table>
-            </div>
-        </div>
+                 </tbody>
+             </table>
+         </div>
+     </div>
 
-        <!-- 显示分页信息 -->
-        <div class="row">
-            <!--分页文字信息  -->
-            <div class="col-md-6" id="page_info_area"></div>
-            <!-- 分页条信息 -->
-            <div class="col-md-6" id="page_nav_area"></div>
-        </div>
-    </div>--%>
+     <!-- 显示分页信息 -->
+     <div class="row">
+         <!--分页文字信息  -->
+         <div class="col-md-6" id="page_info_area"></div>
+         <!-- 分页条信息 -->
+         <div class="col-md-6" id="page_nav_area"></div>
+     </div>
+ </div>--%>
 
 <script type="text/javascript">
     var totalRecord, currentPage;
@@ -317,20 +319,14 @@
             var emailTd = $("<td></td>").append(item.mail);
             var phoneTd = $("<td></td>").append(item.phone);
 
-            var editBtn = $("<button></button>").addClass(
-                "btn btn-primary btn-sm edit_btn").append(
-                $("<span></span>").addClass(
-                    "glyphicon glyphicon-pencil")).append("编辑");
+            var editBtn = $("<button></button>").addClass("btn btn-primary btn-sm edit_btn")
+                .append($("<span></span>").addClass("glyphicon glyphicon-pencil")).append("编辑");
 
             editBtn.attr("edit-id", item.id);
-            var delBtn = $("<button></button>").addClass(
-                "btn btn-danger btn-sm delete_btn").append(
-                $("<span></span>")
-                    .addClass("glyphicon glyphicon-trash")).append(
-                "删除");
+            var delBtn = $("<button></button>").addClass("btn btn-danger btn-sm delete_btn")
+                .append($("<span></span>").addClass("glyphicon glyphicon-trash")).append("删除");
             delBtn.attr("del-id", item.id);
-            var btnTd = $("<td></td>").append(editBtn).append(" ").append(
-                delBtn);
+            var btnTd = $("<td></td>").append(editBtn).append(" ").append(delBtn);
             $("<tr></tr>").append(idTd).append(cusNameTd).append(sexTd)
                 .append(emailTd).append(phoneTd).append(btnTd)
                 .appendTo("#cus_table tbody");
@@ -384,9 +380,7 @@
         }
 
         ul.append(firstPageLi).append(prePageLi);
-        $.each(result.extend.pageInfo.navigatepageNums, function (index,
-                                                                  item) {
-
+        $.each(result.extend.pageInfo.navigatepageNums, function (index, item) {
             if (item != 0) {
                 var numLi = $("<li></li>")
                     .append($("<a></a>").append(item));

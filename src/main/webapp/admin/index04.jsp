@@ -12,6 +12,7 @@
     <link href="${BasePath }/static/bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <script src="${BasePath }/static/bootstrap/js/bootstrap.min.js"></script>
     <link rel="stylesheet" href="${BasePath }/static/bootstrap/css/bootstrap.css">
+    <link rel="shortcut icon" href="${BasePath }/app/favicon.ico" />
     <link rel="stylesheet" href="${BasePath }/static/css/index.css">
     <script src="${BasePath }/static/js/jquery.js"></script>
     <script src="${BasePath }/static/bootstrap/js/bootstrap.js"></script>
@@ -33,14 +34,16 @@
                     <div class="form-group">
                         <label class="col-sm-2 control-label">房间ID</label>
                         <div class="col-sm-10">
-                            <input type="text" name="roomid" class="form-control" id="roomid_update_input" readonly="readonly"/>
+                            <input type="text" name="roomid" class="form-control" id="roomid_update_input"
+                                   readonly="readonly"/>
                             <span class="help-block"></span>
                         </div>
                     </div>
                     <div class="form-group">
                         <label class="col-sm-2 control-label">客户名</label>
                         <div class="col-sm-10">
-                            <input type="text" name="cusname" class="form-control" id="cusname_update_input" readonly="readonly"/>
+                            <input type="text" name="cusname" class="form-control" id="cusname_update_input"
+                                   readonly="readonly"/>
                             <span class="help-block"></span>
                         </div>
                     </div>
@@ -146,7 +149,8 @@
         <div class="col-md-8 header-center">
             <ul class="ul">
                 <li><span class="title">酒店后台管理</span></li>
-                <li><input class="search" type="text" name="roomid" id="roomid_search_input" placeholder="请输入要查询的订单号"></li>
+                <li><input class="search" type="text" name="roomid" id="roomid_search_input" placeholder="请输入要查询的订单号">
+                </li>
                 <li><span class="glyphicon glyphicon-search" id="order_search_modal_btn"></span></li>
             </ul>
         </div>
@@ -292,7 +296,7 @@
             var idTd = $("<td></td>").append(item.id);
             var roomidTd = $("<td></td>").append(item.roomid);
             var cusnameTd = $("<td></td>").append(item.cusname);
-            var ostatusTd = $("<td></td>").append(item.ostatus == 1?"预定": item.ostatus == 2?"入住":item.ostatus == 3?"退房":"完成");
+            var ostatusTd = $("<td></td>").append(item.ostatus == 1 ? "预定" : item.ostatus == 2 ? "入住" : item.ostatus == 3 ? "退房" : "完成");
             var empIdTd = $("<td></td>").append(item.empId);
             var introduceTd = $("<td></td>").append(item.introduce);
 
@@ -432,8 +436,7 @@
     $("#order_update_btn").click(
         function () {
             $.ajax({
-                url: "${BasePath}/order/order/"
-                + $(this).attr("edit-id"),
+                url: "${BasePath}/order/order/" + $(this).attr("edit-id"),
                 type: "PUT",
                 data: $("#orderUpdateModal form").serialize(),
                 success: function (result) {
@@ -453,8 +456,8 @@
             type: "POST",
             data: $("#orderAddModal form").serialize(),
             success: function (result) {
-                if(result.code == 400){
-                }else{
+                if (result.code == 400) {
+                } else {
                     $("#orderAddModal").modal("hide");
                 }
                 alert(result.msg);

@@ -12,6 +12,7 @@
     <script src="${BasePath }/static/bootstrap/js/bootstrap.min.js"></script>
     <link rel="stylesheet" href="${BasePath }/static/bootstrap/css/bootstrap.css">
     <link rel="stylesheet" href="${BasePath }/static/css/index.css">
+    <link rel="shortcut icon" href="${BasePath }/app/favicon.ico" />
     <script src="${BasePath }/static/js/jquery.js"></script>
     <script src="${BasePath }/static/bootstrap/js/bootstrap.js"></script>
 </head>
@@ -32,14 +33,16 @@
                     <div class="form-group">
                         <label class="col-sm-2 control-label">评论人名称</label>
                         <div class="col-sm-10">
-                            <input type="text" name="cusname" class="form-control" id="cusname_update_input" readonly="readonly"/>
+                            <input type="text" name="cusname" class="form-control" id="cusname_update_input"
+                                   readonly="readonly"/>
                             <span class="help-block"></span>
                         </div>
                     </div>
                     <div class="form-group">
                         <label class="col-sm-2 control-label">评论时间</label>
                         <div class="col-sm-10">
-                            <input type="datetime" name="time" class="form-control" id="time_update_input" readonly="readonly"/>
+                            <input type="datetime" name="time" class="form-control" id="time_update_input"
+                                   readonly="readonly"/>
                             <span class="help-block"></span>
                         </div>
                     </div>
@@ -101,7 +104,8 @@
                     <div class="form-group">
                         <label class="col-sm-2 control-label">评论时间</label>
                         <div class="col-sm-10">
-                            <input type="text" name="time"  class="form-control " id="time_add_input" value="2018-08-17 15:00:59"/>
+                            <input type="text" name="time" class="form-control " id="time_add_input"
+                                   value="2018-08-17 15:00:59"/>
                             <span class="help-block"></span>
                         </div>
                     </div>
@@ -147,7 +151,8 @@
         <div class="col-md-8 header-center">
             <ul class="ul">
                 <li><span class="title">酒店后台管理</span></li>
-                <li><input class="search" type="text" name="cusname" id="cusname_search_input" placeholder="请输入要查询的用户名"></li>
+                <li><input class="search" type="text" name="cusname" id="cusname_search_input" placeholder="请输入要查询的用户名">
+                </li>
                 <li><span class="glyphicon glyphicon-search" id="comment_search_modal_btn"></span></li>
             </ul>
         </div>
@@ -293,7 +298,7 @@
             var idTd = $("<td></td>").append(item.id);
             var cusnameTd = $("<td></td>").append(item.cusname);
             var timeTd = $("<td></td>").append(item.time);
-            var levelTd = $("<td></td>").append(item.level+"星");
+            var levelTd = $("<td></td>").append(item.level + "星");
             var roomNumberTd = $("<td></td>").append(item.roomNumber);
             var introduceTd = $("<td></td>").append(item.introduce);
 
@@ -454,8 +459,8 @@
             type: "POST",
             data: $("#commentAddModal form").serialize(),
             success: function (result) {
-                if(result.code == 400){
-                }else{
+                if (result.code == 400) {
+                } else {
                     $("#commentAddModal").modal("hide");
                 }
                 alert(result.msg);

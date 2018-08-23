@@ -1,0 +1,196 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <!-- TITLE -->
+    <title>迎宾大酒店</title>
+    <link rel="shortcut icon" href="favicon.ico" />
+    <header class="header"></header>
+</head>
+
+<body> <!--<![endif]-->
+
+<!-- PRELOADER -->
+<div id="preloader">
+    <span class="preloader-dot"></span>
+</div>
+<!-- END / PRELOADER -->
+<!-- PAGE WRAP -->
+<div id="page-wrap">
+    <!-- HEADER -->
+    <header class="header_menu"></header>
+    <!-- END / HEADER -->
+    <!-- SUB BANNER -->
+    <section class="section-sub-banner bg-9">
+        <div class="awe-overlay"></div>
+        <div class="sub-banner">
+            <div class="container">
+                <div class="text text-center">
+                    <h2>房间 &amp; 价格</h2>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- END / SUB BANNER -->
+    <!-- ROOM -->
+    <section class="section-room bg-white">
+        <div class="container">
+            <div class="room-wrap-1">
+                <div class="row" id="build_rooms_div">
+                    <!-- ITEM -->
+
+                    <!-- END / ITEM -->
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- END / ROOM -->
+    <!-- FOOTER -->
+    <footer class="footer"></footer>
+    <!-- END / FOOTER -->
+    <div class="modal fade" id="indentAddModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                    <h4 class="modal-title" id="myModalLabel02">订单信息</h4>
+                </div>
+                <div class="modal-body">
+                    <form class="form-horizontal">
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label">客户名</label>
+                            <div class="col-sm-10">
+                                <input type="text" name="orderInfo.cusname" class="form-control" id="cusname_add_input">
+                                <span class="help-block"></span>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label">入住时间</label>
+                            <div class="col-sm-10">
+                                <input type="datetime" name="intake.startTime" class="form-control awe-calendar from" id="startTime_add_input">
+                                <span class="help-block"></span>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label">退房时间</label>
+                            <div class="col-sm-10">
+                                <input type="datetime" name="intake.endTime" class="form-control awe-calendar to" id="endTime_add_input">
+                                <span class="help-block"></span>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label">价格</label>
+                            <div class="col-sm-10">
+                                <input type="text" name="intake.money" class="form-control" id="money_add_input" readonly>
+                                <span class="help-block"></span>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label">备注</label>
+                            <div class="col-sm-10">
+                                <input type="text" name="orderInfo.introduce" class="form-control" id="introduce_add_input">
+                                <span class="help-block"></span>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+                    <button type="button" class="btn btn-primary" id="indent_add_btn">保存</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- END / PAGE WRAP -->
+<!-- LOAD JQUERY -->
+<script type="text/javascript" src="js/lib/jquery-1.11.0.min.js"></script>
+<script type="text/javascript" src="js/lib/jquery-ui.min.js"></script>
+<script type="text/javascript" src="js/lib/bootstrap.min.js"></script>
+<script type="text/javascript" src="js/lib/bootstrap-select.js"></script>
+<!--<script src="http://ditu.google.cn/maps/api/js?v=3.exp&amp;signed_in=true"></script>-->
+<script type="text/javascript" src="js/lib/isotope.pkgd.min.js"></script>
+<script type="text/javascript" src="js/lib/jquery.themepunch.revolution.min.js"></script>
+<script type="text/javascript" src="js/lib/jquery.themepunch.tools.min.js"></script>
+<script type="text/javascript" src="js/lib/owl.carousel.js"></script>
+<script type="text/javascript" src="js/lib/jquery.appear.min.js"></script>
+<script type="text/javascript" src="js/lib/jquery.countTo.js"></script>
+<script type="text/javascript" src="js/lib/jquery.countdown.min.js"></script>
+<script type="text/javascript" src="js/lib/jquery.parallax-1.1.3.js"></script>
+<script type="text/javascript" src="js/lib/jquery.magnific-popup.min.js"></script>
+<script type="text/javascript" src="js/lib/SmoothScroll.js"></script>
+<script type="text/javascript" src="js/scripts.js"></script>
+<script>
+    $(function () {
+        $(".header").load("/app/header.html");
+        $(".footer").load("/app/footer.html");
+        $(".header_menu").load("/app/menu.html");
+    });
+    $.ajax({
+        url:"/room/emptyRooms",
+        type:"GET",
+        success:function (result) {
+            var html = "";
+            $.each(result.extend.rooms,function (index,item) {
+                html += "<div class='col-md-6'>\n" +
+                        "<div class='room_item-1'>\n" +
+                        "<h2><a href='#'>"+item.room.type+"</a></h2>\n" +
+                        "<div class='img'>\n";
+                        $.each(item.photos,function (index,photo) {
+                            html += "<a href='#'><img src="+photo.picture+" alt=''></a>\n";
+                        });
+                html += "</div>\n" +
+                        "<div class='desc'>\n" +
+                        "<p>"+item.room.introduce+"</p>\n" +
+                        "<ul>\n" +
+                        "<li>Max: 4 Person(s)</li>\n" +
+                        "<li>Size: 35 m2 / 376 ft2</li>\n" +
+                        "<li>View: Ocen</li>\n" +
+                        "<li>Bed: King-size or twin beds</li>\n" +
+                        "</ul>\n" +
+                        "</div>\n" +
+                        "<div class='bot'>\n" +
+                        "<span class='price'>起步价<span class='amout' >$"+item.room.price+"</span> /days</span>\n" +
+                        "<a class='awe-btn awe-btn-13 add_btn' room_id="+item.room.id+" price="+item.room.price+">立即预定</a>\n" +
+                        "</div>\n" +
+                        "</div>\n" +
+                        "</div>";
+            });
+            $("#build_rooms_div").html(html);
+        }
+    });
+    $(document).on("click",".add_btn",function () {
+        if(user == null){
+            $("#cusUpdateModal").modal({
+                backdrop: "static"
+            });
+        }else{
+            $("#indent_add_btn").attr("add_id",$(this).attr("room_id"));
+            $("#money_add_input").val($(this).attr("price"));
+            $("#cusname_add_input").val(user.customerName);
+            $("#indentAddModal").modal({
+                backdrop: "static"
+            });
+        }
+    });
+    $("#indent_add_btn").on("click",function () {
+        $.ajax({
+            url:"/order/addIndent/"+$(this).attr("add_id"),
+            type:"POST",
+            data:$("#indentAddModal form").serialize(),
+            success:function (result) {
+                alert(result.msg);
+                if(result.code == 200){
+                    $("#indentAddModal").modal("hide");
+                    window.location.href = "/app/order.html";
+                }else{
+
+                }
+            }
+        });
+    });
+</script>
+</body>
+</html>

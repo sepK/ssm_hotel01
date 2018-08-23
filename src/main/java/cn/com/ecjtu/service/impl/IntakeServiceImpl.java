@@ -91,6 +91,14 @@ public class IntakeServiceImpl implements IntakeService{
         return intakeMapper.selectByExample(example);
     }
 
+    public Intake getIntakeByCusNameAndRoomId(Integer roomid, String cusname) {
+        IntakeExample example = new IntakeExample();
+        IntakeExample.Criteria criteria = example.createCriteria();
+        criteria.andCusnameEqualTo(cusname);
+        criteria.andRoomidEqualTo(roomid);
+        return intakeMapper.selectByExample(example).get(0);
+    }
+
     public boolean delIntake(Integer id) {
         return intakeMapper.deleteByPrimaryKey(id) > 0;
     }

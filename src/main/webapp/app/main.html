@@ -1,0 +1,495 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <!-- TITLE -->
+    <title>迎宾大酒店</title>
+    <link rel="shortcut icon" href="favicon.ico" />
+    <header class="header"></header>
+</head>
+<body>
+<!-- PRELOADER -->
+<div id="preloader">
+    <span class="preloader-dot"></span>
+</div>
+<!-- END / PRELOADER -->
+
+<!-- PAGE WRAP -->
+<div id="page-wrap">
+    <!-- HEADER -->
+    <header class="header_menu"></header>
+    <!-- END / HEADER -->
+    <!-- BANNER SLIDER -->
+    <section class="section-slider">
+        <h1 class="element-invisible">Slider</h1>
+        <div id="slider-revolution">
+            <ul>
+                <li data-transition="fade">
+                    <img src="images/slider/img-1.jpg" data-bgposition="left center" data-duration="14000"
+                         data-bgpositionend="right center" alt="">
+                    <div class="tp-caption sft fadeout slider-caption-sub slider-caption-1" data-x="center" data-y="100"
+                         data-speed="700" data-start="1500" data-easing="easeOutBack">
+                        <img src="images/slider/hom1-slide1.png" alt="icons">
+                    </div>
+                    <div class="tp-caption sft fadeout slider-caption-sub slider-caption-1" data-x="center" data-y="240"
+                         data-speed="700" data-start="1500" data-easing="easeOutBack">欢迎来到
+                    </div>
+                    <div class="tp-caption sfb fadeout slider-caption slider-caption-sub-1" data-x="center" data-y="280"
+                         data-speed="700" data-easing="easeOutBack" data-start="2000">迎宾大酒店
+                    </div>
+
+                    <a href="#" class="tp-caption sfb fadeout awe-btn awe-btn-12 awe-btn-slider" data-x="center"
+                       data-y="380" data-easing="easeOutBack" data-speed="700" data-start="2200">马上查看</a>
+                </li>
+
+                <li data-transition="fade">
+                    <img src="images/slider/img-1.jpg" data-bgposition="left center" data-duration="14000"
+                         data-bgpositionend="right center" alt="">
+
+                    <div class="tp-caption sft fadeout" data-x="center" data-y="195" data-speed="700" data-start="1300"
+                         data-easing="easeOutBack">
+                        <img src="images/icon-slider-1.png" alt="">
+                    </div>
+
+                    <div class="tp-caption sft fadeout slider-caption-sub slider-caption-sub-3" data-x="center"
+                         data-y="220" data-speed="700" data-start="1500" data-easing="easeOutBack">
+                        每个酒店都是
+                    </div>
+
+                    <div class="tp-caption sfb fadeout slider-caption slider-caption-3" data-x="center" data-y="260"
+                         data-speed="700" data-easing="easeOutBack" data-start="2000">
+                        独特的60%
+                    </div>
+
+                    <div class="tp-caption sfb fadeout slider-caption-sub slider-caption-sub-3" data-x="center"
+                         data-y="365" data-easing="easeOutBack" data-speed="700" data-start="2200">就像你
+                    </div>
+
+                    <div class="tp-caption sfb fadeout slider-caption-sub slider-caption-sub-3" data-x="center"
+                         data-y="395" data-easing="easeOutBack" data-speed="700" data-start="2400">
+                        <img src="images/icon-slider-2.png" alt=""></div>
+                </li>
+            </ul>
+        </div>
+    </section>
+    <!-- END / BANNER SLIDER -->
+
+    <!-- CHECK AVAILABILITY -->
+    <section class="section-check-availability">
+        <div class="container">
+            <div class="check-availability">
+                <div class="row">
+                    <div class="col-lg-3">
+                        <h2>检索</h2>
+                    </div>
+                    <div class="col-lg-9">
+                        <form id="ajax-form-search-room">
+                            <div class="availability-form">
+                                <input type="text" name="arrive" class="awe-calendar from" placeholder="到达时间">
+                                <input type="text" name="departure" class="awe-calendar to" placeholder="离开时间">
+                                <!--<select class="awe-select" name="adults">
+                                    <option>成年人</option>
+                                    <option>1</option>
+                                    <option>2</option>
+                                    <option>3</option>
+                                </select>
+                                <select class="awe-select" name="children">
+                                    <option>儿童</option>
+                                    <option>1</option>
+                                    <option>2</option>
+                                    <option>3</option>
+                                </select>-->
+                                <div class="vailability-submit">
+                                    <button class="awe-btn awe-btn-13">最好的匹配</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- END / CHECK AVAILABILITY -->
+
+    <!-- ACCOMD ODATIONS -->
+    <section class="section-accomd awe-parallax bg-14">
+        <div class="container">
+            <div class="accomd-modations">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="accomd-modations-header">
+                            <h2 class="heading">房间 & 价格</h2>
+                            <img src="images/icon-accmod.png" alt="icon">
+                            <p>Semper ac dolor vitae accumsan. Cras interdum hendrerit lacinia. Phasellus accumsan urna
+                                vitae molestie interdum. Nam sed placerat libero, non eleifend dolor.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="col-md-12">
+                        <div class="accomd-modations-content owl-single" id="rooms_get_div">
+                            <!--房间信息-->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </section>
+    <!-- END / ACCOMD ODATIONS -->
+
+    <!-- ABOUT -->
+    <section class="section-home-about bg-white">
+        <div class="container">
+            <div class="home-about">
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="img">
+                            <a href="#"><img src="images/home/about/img-1.jpg" alt=""></a>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="text">
+                            <h2 class="heading">关于我们</h2>
+                            <span class="box-border"></span>
+                            <p>与人们普遍认为的相反，Lorem Ipsum并不是简单的随机文本。
+                                它起源于公元前45年的古典拉丁文学，距今已有2000多年的历史。
+                                理查德·麦克林托克是弗吉尼亚州汉普顿-悉尼学院的拉丁语教授，
+                                他从洛伦·伊普苏姆的一段文字中查阅了拉丁文中较为晦涩的一个词“奉献”，
+                                并查阅了古典文学中这个词的引用，发现了毋庸置疑的出处</p>
+                            <a href="#" class="awe-btn awe-btn-default">观看更多</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- END / ABOUT -->
+
+    <!-- OUR BEST -->
+    <section class="section-our-best bg-white">
+        <div class="container">
+            <div class="our-best">
+                <div class="row">
+                    <div class="col-md-6 col-md-push-6">
+                        <div class="img">
+                            <img src="images/home/ourbest/img-1.jpg" alt="">
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-md-pull-6 ">
+                        <div class="text">
+                            <h2 class="heading">我们的优势</h2>
+                            <p>卡特琳娜岛最受欢迎的酒店之一，Vista Del Mar酒店被认为是其中之一
+                                阿瓦隆的领先酒店与亲切的岛屿酒店，周到的设施和
+                                与众不同。</p>
+                            <ul>
+                                <li><img src="images/home/ourbest/icon-3.png" alt="icon">250间5星最佳客房</li>
+                                <li><img src="images/home/ourbest/icon-2.png" alt="icon">小酒吧和冰箱</li>
+                                <li><img src="images/home/ourbest/icon-4.png" alt="icon">双漩涡按摩浴缸</li>
+                                <li><img src="images/home/ourbest/icon-5.png" alt="icon">奢华的紧密织物</li>
+                                <li><img src="images/home/ourbest/icon-1.png" alt="icon">每日早餐</li>
+                                <li><img src="images/home/ourbest/icon-6.png" alt="icon">窗外的海景</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+    </section>
+    <!-- END / OUR BEST -->
+
+    <!-- HOME GUEST BOOK -->
+    <div class="section-home-guestbook awe-parallax bg-13">
+        <div class="container">
+            <div class="home-guestbook">
+                <div class="row">
+                    <div class="col-md-12 col-lg-12">
+                        <div class="guestbook-content owl-single">
+
+                            <!-- ITEM -->
+                            <div class="guestbook-item">
+                                <div class="img">
+                                    <img src="images/avatar/img-5.jpg" alt="">
+                                </div>
+
+                                <div class="text">
+                                    <p>这是卡塔琳娜唯一待的地方!我住在比较便宜的旅馆里
+                                        他们都很好，但这只是锦上添花!在支出
+                                        一天骑自行车和徒步旅行回来，享受一杯酒的同时看
+                                        从你的海景窗口，然后把它全部关闭…</p>
+                                    <span><strong>部分的</strong></span><br>
+                                    <span>来自南昌,江西</span>
+                                </div>
+                            </div>
+                            <!-- ITEM -->
+
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+    <!-- END / HOME GUEST BOOK -->
+
+    <!-- HOME NEW -->
+    <section class="section-event-news bg-white">
+        <div class="container">
+
+            <div class="event-news">
+                <div class="row">
+
+                    <!-- EVENT -->
+                    <div class="col-md-6">
+                        <div class="event">
+                            <h2 class="heading">事件 &amp; 交易</h2>
+                            <span class="box-border w350"></span>
+
+                            <div class="row">
+
+                                <!-- ITEM -->
+                                <div class="col-xs-12 col-sm-12">
+                                    <div class="event-slide owl-single">
+
+                                        <div class="event-item">
+                                            <div class="img hover-zoom">
+                                                <a href="#">
+                                                    <img src="images/home/eventdeal/img-1.jpg" alt="">
+                                                </a>
+                                            </div>
+                                        </div>
+
+                                        <div class="event-item">
+                                            <div class="img hover-zoom">
+                                                <a href="#">
+                                                    <img src="images/home/eventdeal/img-1.jpg" alt="">
+                                                </a>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+                                <!-- END / ITEM -->
+
+                                <!-- ITEM -->
+                                <div class="col-xs-6">
+                                    <div class="event-item">
+                                        <div class="img hover-zoom">
+                                            <a href="#">
+                                                <img src="images/home/eventdeal/img-2.jpg" alt="">
+                                            </a>
+                                        </div>
+                                        <div class="text">
+                                            <div class="text-cn">
+                                                <h2>按时出席</h2>
+                                                <span>BECCA &amp; ROBERT</span>
+                                                <a href="#" class="awe-btn awe-btn-12">观看更多</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- END / ITEM -->
+
+                                <!-- ITEM -->
+                                <div class="col-xs-6">
+                                    <div class="event-item">
+                                        <div class="img hover-zoom">
+                                            <a href="#">
+                                                <img src="images/home/eventdeal/img-2.jpg" alt="">
+                                            </a>
+                                        </div>
+                                        <div class="text">
+                                            <div class="text-cn">
+                                                <h2>去海滩 </h2>
+                                                <a href="#" class="awe-btn awe-btn-12">观看更多</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- END / ITEM -->
+
+                            </div>
+                        </div>
+                    </div>
+                    <!-- END / EVENT -->
+
+                    <!-- NEWS -->
+                    <div class="col-md-6">
+                        <div class="news">
+                            <h2 class="heading">新闻</h2>
+                            <span class="box-border w350 space-5"></span>
+
+                            <div class="row">
+
+                                <!-- ITEM -->
+                                <div class="col-md-12">
+                                    <div class="news-item">
+                                        <div class="img">
+                                            <a href="#"><img src="images/home/lotusnews/img-1.jpg" alt=""></a>
+                                        </div>
+                                        <div class="text">
+                                            <span class="date">21 / 5</span>
+                                            <h2><a href="#">更新酒店的菜单</a></h2>
+                                            <a href="" class="read-more">[ 观看更多 ]</a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- END / ITEM -->
+
+                                <!-- ITEM -->
+                                <div class="col-md-12">
+                                    <div class="news-item">
+                                        <div class="img">
+                                            <a href="#"><img src="images/home/lotusnews/img-1.jpg" alt=""></a>
+                                        </div>
+                                        <div class="text">
+                                            <span class="date">8 / 5</span>
+                                            <h2><a href="#">婚礼JONATHA &amp; 杰西卡</a></h2>
+                                            <a href="" class="read-more">[ 观看更多 ]</a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- END / ITEM -->
+
+                                <!-- ITEM -->
+                                <div class="col-md-12">
+                                    <div class="news-item">
+                                        <div class="img">
+                                            <a href="#"><img src="images/home/lotusnews/img-1.jpg" alt=""></a>
+                                        </div>
+                                        <div class="text">
+                                            <span class="date">16 / 2</span>
+                                            <h2><a href="#">2018最好的婚姻指南</a></h2>
+                                            <a href="" class="read-more">[ 观看更多 ]</a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- END / ITEM -->
+                            </div>
+                            <a href="#" class="awe-btn awe-btn-default">观看更多</a>
+                        </div>
+                    </div>
+                    <!-- END / NEWS -->
+                </div>
+                <div class="hr"></div>
+            </div>
+        </div>
+    </section>
+    <!-- END / HOME NEW -->
+
+    <!-- GALLERY -->
+    <section class="section-gallery bg-white">
+
+        <div class="gallery  no-padding">
+            <h2 class="heading text-center">画廊</h2>
+
+            <!-- FILTER -->
+            <div class="gallery-cat text-center">
+                <ul class="list-inline">
+                    <li class="active"><a href="#" data-filter="*">所有</a></li>
+                    <li><a href="#" data-filter=".ground">酒店</a></li>
+                    <li><a href="#" data-filter=".suite">房间/套房 </a></li>
+                    <li><a href="#" data-filter=".bathroom">浴室</a></li>
+                    <li><a href="#" data-filter=".dining">餐厅</a></li>
+                </ul>
+            </div>
+            <!-- END / FILTER -->
+
+            <!-- GALLERY CONTENT -->
+            <div class="gallery-content hover-img">
+                <div class="row">
+                    <div class="gallery-isotope col-6 pd-0">
+
+                        <!-- ITEM SIZE -->
+                        <div class="item-size"></div>
+                        <!-- END / ITEM SIZE -->
+                        <!-- ITEM -->
+
+                        <!-- ITEM -->
+                        <div class="item-isotope ground bathroom dining suite">
+                            <div class="gallery_item">
+                                <a href="images/gallery/popup/img-1.jpg" class="gallery-popup mfp-image" title="Luxury Room view all">
+                                    <img src="images/gallery/img-1.jpg" alt="">
+                                </a>
+                            </div>
+                        </div>
+                        <!-- END / ITEM -->
+                    </div>
+                </div>
+                <div class="our-gallery text-center">
+                    <a href="#" class="awe-btn awe-btn-default">浏览我们的画廊</a>
+                </div>
+            </div>
+            <!-- GALLERY CONTENT -->
+        </div>
+    </section>
+    <!-- END / GALLERY -->
+    <!-- FOOTER -->
+    <footer class="footer"></footer>
+    <!-- END / FOOTER -->
+</div>
+<!-- END / PAGE WRAP -->
+<!-- LOAD JQUERY -->
+<script type="text/javascript" src="js/lib/jquery-1.11.0.min.js"></script>
+<script type="text/javascript" src="js/lib/jquery-ui.min.js"></script>
+<script type="text/javascript" src="js/lib/bootstrap.min.js"></script>
+<script type="text/javascript" src="js/lib/bootstrap-select.js"></script>
+<!---<script src="http://ditu.google.cn/maps/api/js?v=3.exp&amp;signed_in=true"></script>--->
+<script type="text/javascript" src="js/lib/isotope.pkgd.min.js"></script>
+<script type="text/javascript" src="js/lib/jquery.themepunch.revolution.min.js"></script>
+<script type="text/javascript" src="js/lib/jquery.themepunch.tools.min.js"></script>
+<script type="text/javascript" src="js/lib/owl.carousel.js"></script>
+<script type="text/javascript" src="js/lib/jquery.appear.min.js"></script>
+<script type="text/javascript" src="js/lib/jquery.countTo.js"></script>
+<script type="text/javascript" src="js/lib/jquery.countdown.min.js"></script>
+<script type="text/javascript" src="js/lib/jquery.parallax-1.1.3.js"></script>
+<script type="text/javascript" src="js/lib/jquery.magnific-popup.min.js"></script>
+<script type="text/javascript" src="js/lib/SmoothScroll.js"></script>
+<!-- validate -->
+<script type="text/javascript" src="js/lib/jquery.form.min.js"></script>
+<script type="text/javascript" src="js/lib/jquery.validate.min.js"></script>
+<!-- Custom jQuery -->
+<script type="text/javascript" src="js/scripts.js"></script>
+<script>
+    $(function () {
+        $(".header").load("/app/header.html");
+        $(".footer").load("/app/footer.html");
+        $(".header_menu").load("/app/menu.html");
+        $.ajax({
+            url: "/room/pictures",
+            type: "GET",
+            data: "pn=1",
+            success: function (result) {
+                var html = "";
+                $.each(result.extend.pageInfo.list, function (index, item) {
+                    if (index % 6 == 0) {
+                        html += "<div class='row'>"
+                    }
+                    html += "<div class='col-xs-4'>\n" +
+                        "<div class='accomd-modations-room'>\n" +
+                        "<div class='img'>\n";
+                    $.each(item.photos, function (index, photo) {
+                        html += "<a href='#'><img src=" + photo.picture + " ></a>\n";
+                    });
+                    html += "</div>\n" +
+                        "<div class='text'>\n" +
+                        "<h2><a href='#'>" + item.room.type + "</a></h2>\n" +
+                        "<p class='price'>\n" +
+                        "<span class='amout'>" + item.room.price + "￥</span>/day\n" +
+                        "</p>\n" +
+                        "</div>\n" +
+                        "</div>\n" +
+                        "</div>";
+                    if (index % 6 == 5) {
+                        html += "</div>"
+                    }
+                });
+                $("#rooms_get_div").html(html);
+            }
+        });
+    });
+</script>
+</body>
+</html>

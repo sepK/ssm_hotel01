@@ -4,15 +4,20 @@ import cn.com.ecjtu.exception.CustomerNotFoundException;
 import cn.com.ecjtu.exception.EmployeeNotFoundException;
 import cn.com.ecjtu.exception.RepeatOrderException;
 import cn.com.ecjtu.exception.RoomNotFoundException;
+import cn.com.ecjtu.pojo.Indent;
 import cn.com.ecjtu.pojo.OrderInfo;
 import cn.com.ecjtu.service.OrderInfoService;
 import cn.com.ecjtu.utils.Msg;
+import com.fasterxml.jackson.core.JsonGenerationException;
+import com.fasterxml.jackson.databind.JsonMappingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
+import java.io.IOException;
 import java.util.List;
 
 @Controller
@@ -92,7 +97,25 @@ public class OrderInfoController {
         }else{
             return Msg.fail();
         }
+    }
 
+    @RequestMapping(value = "/addIndent/{id}",method = RequestMethod.POST)
+    @ResponseBody
+    public Msg addIndent(@PathVariable("id") Integer roomId, Indent indent){
+        return orderInfoService.addIndent(roomId,indent);
+    }
 
+    @RequestMapping(value = "/getIndents",method = RequestMethod.GET)
+    @ResponseBody
+    public Msg getIndents(@RequestParam("cusname") String cusname){
+        List<Indent> indents = orderInfoService.getIndents(cusname);
+        return Msg.success().add("indents",indents);
+    }
+
+    @RequestMapping(value = "/updateIndent",method = RequestMethod.POST)
+    @ResponseBody
+    public Msg updateIndent(OrderInfo orderInfo){
+
+        return orderInfoService.updateIndent(orderInfo);
     }
 }

@@ -12,6 +12,7 @@
     <link href="${BasePath }/static/bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="${BasePath }/static/bootstrap/css/bootstrap.css">
     <link rel="stylesheet" href="${BasePath }/static/css/index.css">
+    <link rel="shortcut icon" href="${BasePath }/app/favicon.ico" />
     <script src="${BasePath }/static/bootstrap/js/bootstrap.min.js"></script>
     <script src="${BasePath }/static/js/jquery.js"></script>
     <script src="${BasePath }/static/bootstrap/js/bootstrap.js"></script>
@@ -40,14 +41,15 @@
                     <div class="form-group">
                         <label class="col-sm-2 control-label">房间价格</label>
                         <div class="col-sm-10">
-                            <input type="text" name="price" class="form-control" id="price_update_input" >
+                            <input type="text" name="price" class="form-control" id="price_update_input">
                             <span class="help-block"></span>
                         </div>
                     </div>
                     <div class="form-group">
                         <label class="col-sm-2 control-label">客房状态</label>
                         <div class="col-sm-10">
-                            <input type="text" name="price" class="form-control" id="status_update_input" readonly="readonly"/>
+                            <input type="text" name="price" class="form-control" id="status_update_input"
+                                   readonly="readonly"/>
                             <span class="help-block"></span>
                         </div>
                     </div>
@@ -97,7 +99,7 @@
                     <div class="form-group">
                         <label class="col-sm-2 control-label">房间价格</label>
                         <div class="col-sm-10">
-                            <input type="text" name="price" class="form-control" id="price_add_input" >
+                            <input type="text" name="price" class="form-control" id="price_add_input">
                             </label>
                         </div>
                     </div>
@@ -142,7 +144,8 @@
         <div class="col-md-8 header-center">
             <ul class="ul">
                 <li><span class="title">酒店后台管理</span></li>
-                <li><input class="search" type="text" name="roomNumber" id="roomNumber_search_input" placeholder="请输入要查询的房间号"></li>
+                <li><input class="search" type="text" name="roomNumber" id="roomNumber_search_input"
+                           placeholder="请输入要查询的房间号"></li>
                 <li><span class="glyphicon glyphicon-search" id="room_search_modal_btn"></span></li>
             </ul>
         </div>
@@ -305,7 +308,7 @@
             var idTd = $("<td></td>").append(item.id);
             var typeTd = $("<td></td>").append(item.type);
             var priceTd = $("<td></td>").append(item.price);
-            var statusTd = $("<td></td>").append(item.status == 0?"空闲": item.status == 1?"预定": item.status == 2?"入住":"退房");
+            var statusTd = $("<td></td>").append(item.status == 0 ? "空闲" : item.status == 1 ? "预定" : item.status == 2 ? "入住" : "退房");
             var introduceTd = $("<td></td>").append(item.introduce);
             var roomNumberTd = $("<td></td>").append(item.roomNumber);
 
@@ -422,7 +425,7 @@
                 $("#price_update_input").val(room.price);
                 $("#roomNumber_update_input").val(room.roomNumber);
                 $("#introduce_update_input").val(room.introduce);
-                $("#status_update_input").val(room.status == 0?"空闲": room.status == 1?"预定": room.status == 2?"入住":"退房");
+                $("#status_update_input").val(room.status == 0 ? "空闲" : room.status == 1 ? "预定" : room.status == 2 ? "入住" : "退房");
             }
         });
     }
@@ -506,19 +509,20 @@
             $(ele).next("span").text(msg);
         }
     }
+
     $("#roomNumber_add_input").change(function () {
         $.ajax({
-            url:"${BasePath}/room/checkRoomNumber",
-            type:"POST",
-            data:"roomNumber="+$(this).val(),
-            success:function (result) {
-                   if(result.code == 400){
-                       show_validate_msg("#roomNumber_add_input","error","客房号存在");
-                       $("#roomNumber_add_input").attr("ajax-va", "error");
-                   }else{
-                       show_validate_msg("#roomNumber_add_input","success","");
-                       $("#roomNumber_add_input").attr("ajax-va", "success");
-                   }
+            url: "${BasePath}/room/checkRoomNumber",
+            type: "POST",
+            data: "roomNumber=" + $(this).val(),
+            success: function (result) {
+                if (result.code == 400) {
+                    show_validate_msg("#roomNumber_add_input", "error", "客房号存在");
+                    $("#roomNumber_add_input").attr("ajax-va", "error");
+                } else {
+                    show_validate_msg("#roomNumber_add_input", "success", "");
+                    $("#roomNumber_add_input").attr("ajax-va", "success");
+                }
             }
         });
     });
@@ -529,7 +533,7 @@
         $.ajax({
             url: "${BasePath}/room/searchByStatus",
             type: "POST",
-            data: "status="+$(this).val(),
+            data: "status=" + $(this).val(),
             success: function (result) {
                 build_room_table(result.extend.list);
             }
