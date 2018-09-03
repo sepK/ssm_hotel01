@@ -93,7 +93,7 @@
                                 "</li>\n" +
                                 "<li>\n" +
                                 "<span>种类</span>\n" +
-                                "<span>总统套房</span>\n" +
+                                "<span>豪华套间</span>\n" +
                                 "</li>\n" +
                                 "<li>\n" +
                                 "<span>时间</span>\n" +
@@ -124,6 +124,9 @@
                                 "</div>";
                     });
                     $("#build_rooms_div").html(html);
+                    if($("#build_rooms_div").html() === ""){
+                        $("#build_rooms_div").html("<h1>暂时还没有订单 快来消费吧</h1>");
+                    }
                 }
             });
             $(document).on("click",".pay_btn",function () {

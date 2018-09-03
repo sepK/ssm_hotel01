@@ -43,7 +43,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-sm-8 col-sm-offset-2 text">
-                    <h1><strong>欢迎登陆</strong></h1>
+                    <h1><strong>欢迎登陆酒店后台管理</strong></h1>
                 </div>
             </div>
             <div class="row">
