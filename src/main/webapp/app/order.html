@@ -100,7 +100,7 @@
                                 "<span>" + item.intake.startTime + "~" + item.intake.endTime + "</span>\n" +
                                 "</li>\n" +
                                 "<li>\n" +
-                                "<span class='box'>详情</span>\n" +
+                                "<span class='box'>备注</span>\n" +
                                 "<div class='boxs'>" + item.orderInfo.introduce + "</div>\n" +
                                 "</li>\n" +
                                 "<li>\n" +
@@ -110,7 +110,6 @@
                         if(ostatus === "预定"){
                             html +=  "<button type='button' class='btn btn-primary pay_btn' pay-id=" + item.orderInfo.id + ">付款</button>\n" ;
                             html +=  "<button type='button' class='btn btn-warning finsh_btn' finsh-id=" + item.orderInfo.id + ">完成订单</button>\n" ;
-                            html +=  "<button type='button' class='btn btn-danger checkout_btn' checkout-id=" + item.orderInfo.id + ">退房</button>\n" ;
                         }else if(ostatus === "入住"){
                             html +=  "<button type='button' class='btn btn-warning finsh_btn' finsh-id=" + item.orderInfo.id + ">完成订单</button>\n" ;
                             html +=  "<button type='button' class='btn btn-danger checkout_btn' checkout-id=" + item.orderInfo.id + ">退房</button>\n" ;
